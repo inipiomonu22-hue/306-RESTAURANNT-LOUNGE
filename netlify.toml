@@ -1,0 +1,14 @@
+# Netlify configuration for 306 Restaurant & Lounge
+# Since this project contains both the native Android app and the responsive Web App,
+# Netlify publishes the web application from the repository root.
+
+[build]
+  publish = "."
+  command = ""
+
+# Single Page Application (SPA) rewrite rule:
+# Route all paths to /index.html with status 200 so navigation and direct URLs work seamlessly
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
