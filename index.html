@@ -159,10 +159,6 @@
       background: var(--bg-elevated);
     }
 
-    .cart-badge-wrap {
-      position: relative;
-    }
-
     .cart-pill {
       background: var(--gold-primary);
       color: #000;
@@ -452,11 +448,11 @@
       font-size: 14px;
     }
 
-    /* Menu Grid */
+    /* Menu Grid & Dish Cards with Photographs */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 20px;
+      gap: 22px;
       margin-bottom: 50px;
     }
 
@@ -474,19 +470,68 @@
     .dish-card:hover {
       border-color: var(--border-color);
       transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
     }
 
-    .dish-header {
-      padding: 20px 20px 14px;
+    /* Dish Card Photo Header */
+    .dish-card-img-wrap {
       position: relative;
+      width: 100%;
+      height: 195px;
+      background: #1B2028;
+      overflow: hidden;
     }
 
-    .dish-badges {
+    .dish-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .dish-card:hover .dish-card-img {
+      transform: scale(1.07);
+    }
+
+    .dish-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(22, 25, 31, 0.85) 100%);
+      pointer-events: none;
+    }
+
+    .dish-img-badges {
+      position: absolute;
+      top: 10px;
+      left: 10px;
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 10px;
+      z-index: 2;
+    }
+
+    .dish-prep-chip {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(13, 15, 18, 0.8);
+      backdrop-filter: blur(6px);
+      color: #E2E8F0;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 2;
+    }
+
+    .dish-header {
+      padding: 16px 18px 12px;
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .badge {
@@ -496,39 +541,46 @@
       border-radius: 4px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      backdrop-filter: blur(6px);
     }
 
     .badge-bestseller {
-      background: rgba(212, 175, 55, 0.2);
-      color: var(--gold-light);
-      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: rgba(212, 175, 55, 0.3);
+      color: #FFE680;
+      border: 1px solid rgba(212, 175, 55, 0.6);
     }
 
     .badge-halal {
-      background: rgba(46, 125, 50, 0.2);
-      color: #81C784;
-      border: 1px solid rgba(46, 125, 50, 0.4);
+      background: rgba(46, 125, 50, 0.35);
+      color: #A3E635;
+      border: 1px solid rgba(76, 175, 80, 0.6);
     }
 
     .badge-chef {
-      background: rgba(230, 81, 0, 0.2);
-      color: #FF8A65;
-      border: 1px solid rgba(230, 81, 0, 0.4);
+      background: rgba(230, 81, 0, 0.35);
+      color: #FFAB91;
+      border: 1px solid rgba(255, 112, 67, 0.6);
+    }
+
+    .badge-drink {
+      background: rgba(59, 130, 246, 0.35);
+      color: #93C5FD;
+      border: 1px solid rgba(96, 165, 250, 0.6);
     }
 
     .dish-name {
       font-size: 17px;
       font-weight: 700;
       color: #FFF;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       line-height: 1.3;
     }
 
     .dish-desc {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--text-muted);
       line-height: 1.5;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
@@ -538,16 +590,16 @@
     .dish-meta {
       display: flex;
       justify-content: space-between;
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--text-dim);
-      padding-top: 10px;
+      padding-top: 8px;
       border-top: 1px solid var(--border-subtle);
       margin-top: auto;
     }
 
     .dish-footer {
-      padding: 14px 20px;
-      background: rgba(0, 0, 0, 0.2);
+      padding: 12px 18px;
+      background: rgba(0, 0, 0, 0.25);
       border-top: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
@@ -587,12 +639,12 @@
       border-color: var(--gold-light);
     }
 
-    /* Modal Styling */
+    /* Modal Styling with Hero Image Banner */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
       z-index: 200;
       display: none;
       align-items: center;
@@ -610,10 +662,11 @@
       border-radius: var(--radius-lg);
       width: 100%;
       max-width: 580px;
-      max-height: 90vh;
+      max-height: 92vh;
       overflow-y: auto;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
       animation: modalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
     }
 
     @keyframes modalIn {
@@ -621,39 +674,57 @@
       to { transform: scale(1); opacity: 1; }
     }
 
-    .modal-header {
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--border-subtle);
+    .modal-dish-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background: #1B2028;
+      overflow: hidden;
+    }
+
+    .modal-dish-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .modal-dish-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(22, 25, 31, 0.95) 100%);
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      background: var(--bg-surface);
-      z-index: 2;
+      padding: 16px 20px;
     }
 
-    .modal-header h3 {
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFF;
       font-size: 18px;
-      font-weight: 700;
-      color: #FFF;
-    }
-
-    .close-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-size: 22px;
       cursor: pointer;
-      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
     }
 
-    .close-btn:hover {
-      color: #FFF;
+    .modal-close-btn:hover {
+      background: var(--gold-primary);
+      color: #000;
     }
 
     .modal-body {
-      padding: 24px;
+      padding: 20px 24px 24px;
     }
 
     .form-group {
@@ -711,7 +782,7 @@
       border-color: var(--gold-primary);
     }
 
-    /* Cart Drawer */
+    /* Cart Drawer with Thumbnails */
     .cart-drawer {
       position: fixed;
       top: 0;
@@ -748,11 +819,25 @@
 
     .cart-item-row {
       display: flex;
-      justify-content: space-between;
       gap: 12px;
       padding-bottom: 16px;
       margin-bottom: 16px;
       border-bottom: 1px solid var(--border-subtle);
+      align-items: center;
+    }
+
+    .cart-item-thumb {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid var(--border-color);
+      background: #1B2028;
+    }
+
+    .cart-item-info {
+      flex: 1;
     }
 
     .cart-item-info h4 {
@@ -914,12 +999,6 @@
       margin-bottom: 20px;
     }
 
-    .alert-banner.warning {
-      background: rgba(230, 81, 0, 0.15);
-      border-color: var(--orange-accent);
-      color: #FFB74D;
-    }
-
     /* Printable QR Poster */
     .poster-container {
       background: #FFFFFF;
@@ -1068,17 +1147,18 @@
       <section id="menu-items-section" class="filter-section">
         <div class="filter-bar">
           <div class="categories-wrap" id="categoryContainer">
-            <button class="category-pill active" onclick="filterCategory('All')">All Items</button>
+            <button class="category-pill active" onclick="filterCategory('All')">All Items (24)</button>
             <button class="category-pill" onclick="filterCategory('Rice Dishes')">🍚 Rice Dishes</button>
             <button class="category-pill" onclick="filterCategory('Soups & Swallows')">🍲 Soups & Swallows</button>
             <button class="category-pill" onclick="filterCategory('Proteins & Grills')">🥩 Grills & Suya</button>
-            <button class="category-pill" onclick="filterCategory('Sides & Starters')">🥟 Starters & Small Chops</button>
+            <button class="category-pill" onclick="filterCategory('Everyday Meals')">🍲 Everyday Meals</button>
+            <button class="category-pill" onclick="filterCategory('Sides & Snacks')">🥟 Starters & Sides</button>
             <button class="category-pill" onclick="filterCategory('Drinks & Cocktails')">🍹 Drinks & Cocktails</button>
           </div>
 
           <div class="search-input-wrap">
             <span class="search-icon">🔍</span>
-            <input type="text" class="search-input" id="searchBox" placeholder="Search Jollof, Egusi, Suya..." oninput="handleSearch()">
+            <input type="text" class="search-input" id="searchBox" placeholder="Search Jollof, Egusi, Suya, Chapman..." oninput="handleSearch()">
           </div>
         </div>
 
@@ -1360,13 +1440,24 @@
     </div>
   </div>
 
-  <!-- DISH CUSTOMIZE MODAL -->
+  <!-- DISH CUSTOMIZE MODAL WITH PHOTOGRAPH BANNER -->
   <div class="modal-overlay" id="dishModal">
     <div class="modal-box">
-      <div class="modal-header">
-        <h3 id="modalDishTitle">Customize Dish</h3>
-        <button class="close-btn" onclick="closeModal()">&times;</button>
+      <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+      
+      <!-- Modal Dish Photo Banner -->
+      <div class="modal-dish-img-wrap">
+        <img id="modalDishImg" src="images/fallback.jpg" alt="Dish photo" class="modal-dish-img"
+             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80';">
+        <div class="modal-dish-overlay">
+          <div id="modalDishBadges" class="dish-img-badges"></div>
+          <div>
+            <h3 id="modalDishTitle" style="color: #FFF; font-size: 20px; font-weight: 800; text-shadow: 0 2px 8px rgba(0,0,0,0.8);"></h3>
+            <div id="modalDishPortion" style="color: var(--gold-light); font-size: 12px; font-weight: 600; margin-top: 2px;"></div>
+          </div>
+        </div>
       </div>
+
       <div class="modal-body">
         <p id="modalDishDesc" style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px; line-height: 1.5;"></p>
         
@@ -1407,11 +1498,11 @@
     </div>
   </div>
 
-  <!-- CART & CHECKOUT DRAWER -->
+  <!-- CART & CHECKOUT DRAWER WITH THUMBNAILS -->
   <div class="cart-drawer" id="cartDrawer">
     <div class="cart-header">
       <div style="font-weight: 800; font-size: 16px; color: var(--gold-light);">🛒 Your Cart & Checkout</div>
-      <button class="close-btn" onclick="toggleCart()">&times;</button>
+      <button class="modal-close-btn" style="position: static;" onclick="toggleCart()">&times;</button>
     </div>
 
     <div class="cart-items" id="cartItemsList">
@@ -1473,11 +1564,8 @@
   <!-- PAYFAST MODAL -->
   <div class="modal-overlay" id="payfastModal">
     <div class="modal-box" style="max-width: 480px;">
-      <div class="modal-header">
-        <h3 style="color: var(--gold-light);">💳 PayFast Secure Gateway</h3>
-        <button class="close-btn" onclick="document.getElementById('payfastModal').classList.remove('active')">&times;</button>
-      </div>
-      <div class="modal-body">
+      <button class="modal-close-btn" onclick="document.getElementById('payfastModal').classList.remove('active')">&times;</button>
+      <div class="modal-body" style="padding-top: 28px;">
         <div style="text-align: center; margin-bottom: 18px;">
           <div style="display: inline-block; background: #FFF; padding: 6px 14px; border-radius: 6px; font-weight: 900; color: #C62828; font-size: 18px; letter-spacing: 1px;">
             PAY<span style="color: #111;">FAST</span>
@@ -1517,8 +1605,9 @@
   </div>
 
   <script>
-    // Initial Seed Menu Data (Matching Android Room App)
+    // Complete 24 Menu Items with Authentic, High-Resolution Food Photographs
     const MENU_ITEMS = [
+      // Rice Dishes
       {
         id: "rice_1",
         name: "Smoky Nigerian Party Jollof Rice",
@@ -1530,7 +1619,9 @@
         proteins: ["Grilled Chicken", "Fried Peppered Beef", "Goat Meat", "Fried Croaker Fish"],
         swallows: [],
         tags: ["HALAL", "BESTSELLER"],
-        prepTime: 20
+        prepTime: 20,
+        imageUrl: "images/rice_1.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: "rice_2",
@@ -1543,7 +1634,9 @@
         proteins: ["Grilled Turkey", "Fried Chicken", "Peppered Beef"],
         swallows: [],
         tags: ["HALAL"],
-        prepTime: 20
+        prepTime: 20,
+        imageUrl: "images/rice_2.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: "rice_3",
@@ -1552,12 +1645,31 @@
         priceZar: 185.00,
         category: "Rice Dishes",
         portion: "Traditional Leaf Serving",
-        spice: "Hot",
+        spice: "Hot 🔥",
         proteins: ["Assorted Offal & Beef", "Boiled Egg", "Fried Fish"],
         swallows: [],
         tags: ["HALAL", "CHEF_SPECIAL"],
-        prepTime: 25
+        prepTime: 25,
+        imageUrl: "images/rice_3.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80"
       },
+      {
+        id: "rice_4",
+        name: "White Rice & Rich Native Stew",
+        description: "Fluffy steamed long-grain rice accompanied by traditional Nigerian pepper and tomato reduction stew with scent leaf accents.",
+        priceZar: 135.00,
+        category: "Rice Dishes",
+        portion: "Standard Portion",
+        spice: "Medium",
+        proteins: ["Beef", "Chicken", "Fried Fish"],
+        swallows: [],
+        tags: ["HALAL"],
+        prepTime: 15,
+        imageUrl: "images/rice_4.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80"
+      },
+
+      // Soups & Swallows
       {
         id: "soup_1",
         name: "Royal Nigerian Egusi Soup",
@@ -1569,7 +1681,9 @@
         proteins: ["Goat Meat", "Beef", "Assorted Shaki/Kpomo", "Dry Fish"],
         swallows: ["Pounded Yam", "Eba (Garri)", "Semovita", "Amala"],
         tags: ["HALAL", "BESTSELLER"],
-        prepTime: 25
+        prepTime: 25,
+        imageUrl: "images/soup_1.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: "soup_2",
@@ -1582,7 +1696,9 @@
         proteins: ["Beef", "Goat Meat", "Shaki", "Stockfish"],
         swallows: ["Pounded Yam", "Eba (Garri)", "Semovita", "Amala"],
         tags: ["HALAL"],
-        prepTime: 25
+        prepTime: 25,
+        imageUrl: "images/soup_2.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: "soup_3",
@@ -1595,7 +1711,9 @@
         proteins: ["Tiger Prawns", "Calamari", "Fresh Fish", "Crabs"],
         swallows: ["Pounded Yam", "Eba (Garri)", "Semovita"],
         tags: ["HALAL", "CHEF_SPECIAL"],
-        prepTime: 30
+        prepTime: 30,
+        imageUrl: "images/soup_3.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: "soup_4",
@@ -1604,12 +1722,31 @@
         priceZar: 195.00,
         category: "Soups & Swallows",
         portion: "Bowl with 1 Swallow Portion",
-        spice: "Hot",
+        spice: "Hot 🔥",
         proteins: ["Goat Meat", "Fried Beef", "Smoked Fish", "Kpomo"],
         swallows: ["Pounded Yam", "Eba (Garri)", "Amala"],
         tags: ["HALAL"],
-        prepTime: 25
+        prepTime: 25,
+        imageUrl: "images/soup_4.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=600&q=80"
       },
+      {
+        id: "soup_5",
+        name: "Authentic Calabar Afang Soup",
+        description: "Traditional shredded Ukazi (Afang) leaves pounded with fresh waterleaf, shelled periwinkles, stockfish head, and rich palm oil.",
+        priceZar: 210.00,
+        category: "Soups & Swallows",
+        portion: "Rich Bowl with Swallow",
+        spice: "Medium",
+        proteins: ["Goat Meat", "Beef", "Periwinkles", "Stockfish"],
+        swallows: ["Pounded Yam", "Eba", "Semo"],
+        tags: ["HALAL"],
+        prepTime: 25,
+        imageUrl: "images/soup_5.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80"
+      },
+
+      // Proteins & Grills
       {
         id: "grill_1",
         name: "Signature Lagos Beef Suya Skewers",
@@ -1618,15 +1755,17 @@
         category: "Proteins & Grills",
         portion: "4 Skewers with Suya Spice",
         spice: "Hot 🔥",
-        proteins: ["Prime Beef"],
+        proteins: ["Prime Beef Fillet"],
         swallows: [],
         tags: ["HALAL", "BESTSELLER"],
-        prepTime: 15
+        prepTime: 15,
+        imageUrl: "images/grill_1.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: "grill_2",
-        name: "Spicy Roasted Asun (Peppered Goat Meat)",
-        description: "Succulent cubes of tender flame-charred goat meat tossed in a spicy aromatic habanero and red bell pepper reduction with caramelized onions.",
+        name: "Spicy Roasted Goat Meat (Asun)",
+        description: "Succulent cubes of tender flame-charred goat meat tossed in a smoking hot habanero pepper, sweet bell pepper, and spring onion glaze.",
         priceZar: 180.00,
         category: "Proteins & Grills",
         portion: "Generous Sharing Platter",
@@ -1634,49 +1773,183 @@
         proteins: ["Bone-in Goat Meat"],
         swallows: [],
         tags: ["HALAL", "CHEF_SPECIAL"],
-        prepTime: 20
+        prepTime: 20,
+        imageUrl: "images/grill_2.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
       },
+      {
+        id: "grill_3",
+        name: "Whole Grilled Peppered Croaker Fish",
+        description: "Whole Cape Atlantic Croaker fish scored and fire-roasted with 306 signature pepper glaze. Accompanied by crispy golden plantains and pickled slaw.",
+        priceZar: 250.00,
+        category: "Proteins & Grills",
+        portion: "Whole Fish (~700g)",
+        spice: "Medium Hot",
+        proteins: ["Fresh Croaker Fish"],
+        swallows: [],
+        tags: ["HALAL", "CHEF_SPECIAL"],
+        prepTime: 30,
+        imageUrl: "images/grill_3.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: "grill_4",
+        name: "Spiced Turkey & Fried Chicken Bites",
+        description: "Succulent turkey wings or drumsticks parboiled in native aromatics, deep-fried to a golden crunch, and tossed in rich tomato-habanero sauce.",
+        priceZar: 150.00,
+        category: "Proteins & Grills",
+        portion: "Platter with Herb Dip",
+        spice: "Medium",
+        proteins: ["Turkey Wings", "Chicken Drumsticks"],
+        swallows: [],
+        tags: ["HALAL"],
+        prepTime: 15,
+        imageUrl: "images/grill_4.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: "grill_5",
+        name: "Lagos Island Assorted Pepper Soup",
+        description: "Aromatic steaming herbal broth infused with uda seeds, calabash nutmeg, and tender cuts of goat meat, tripe, and liver.",
+        priceZar: 165.00,
+        category: "Proteins & Grills",
+        portion: "Hot Tureen with Bread",
+        spice: "Hot 🔥",
+        proteins: ["Goat Meat", "Beef Offal", "Catfish"],
+        swallows: [],
+        tags: ["HALAL"],
+        prepTime: 20,
+        imageUrl: "images/grill_5.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=600&q=80"
+      },
+
+      // Everyday Meals
+      {
+        id: "every_1",
+        name: "Ewa Aganyin & Fried Plantains",
+        description: "Slow-braised buttery honey beans mashed to velvet perfection, drenched in intense slow-fried dark Aganyin pepper sauce with golden dodo.",
+        priceZar: 140.00,
+        category: "Everyday Meals",
+        portion: "Standard Serving",
+        spice: "Medium Hot",
+        proteins: ["Fried Fish", "Boiled Egg", "Fried Beef"],
+        swallows: [],
+        tags: ["HALAL", "VEGETARIAN"],
+        prepTime: 15,
+        imageUrl: "images/every_1.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: "every_2",
+        name: "Asaro (Yam Porridge) with Smoked Fish",
+        description: "Sweet Puna yam cubes braised in red palm oil broth, enriched with smoked catfish flakes, habanero peppers, and fresh greens.",
+        priceZar: 145.00,
+        category: "Everyday Meals",
+        portion: "Hearty Bowl",
+        spice: "Medium",
+        proteins: ["Smoked Catfish", "Fried Beef"],
+        swallows: [],
+        tags: ["HALAL"],
+        prepTime: 20,
+        imageUrl: "images/every_2.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: "every_3",
+        name: "Lounge Gourmet Moi Moi Platter",
+        description: "Steamed bean souffle enriched with olive oil, sweet bell pepper puree, flaked smoked fish, and boiled egg slice.",
+        priceZar: 85.00,
+        category: "Everyday Meals",
+        portion: "2 Wrapped Portions",
+        spice: "Mild",
+        proteins: ["Egg & Fish Flakes"],
+        swallows: [],
+        tags: ["HALAL"],
+        prepTime: 10,
+        imageUrl: "images/every_3.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80"
+      },
+
+      // Sides & Snacks
       {
         id: "side_1",
         name: "Sweet Fried Plantains (Dodo)",
-        description: "Ripe yellow plantains sliced and gently caramelized to sweet, golden perfection. Perfect companion for Jollof and Suya.",
+        description: "Sweet, perfectly ripe plantain slices fried to caramelized golden bliss. Perfect companion for Jollof, Fried Rice and Suya.",
         priceZar: 55.00,
-        category: "Sides & Starters",
-        portion: "Full Portion",
+        category: "Sides & Snacks",
+        portion: "Full Side Portion",
         spice: "None",
         proteins: [],
         swallows: [],
-        tags: ["HALAL", "VEGETARIAN"],
-        prepTime: 10
+        tags: ["HALAL", "VEGETARIAN", "BESTSELLER"],
+        prepTime: 10,
+        imageUrl: "images/side_1.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1528736235302-52922df5c122?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: "side_2",
-        name: "Lagos Street Puff Puff (6 Pieces)",
-        description: "Golden fried sweet yeast dough balls with a fluffy interior and crisp outer crust, lightly dusted with cinnamon nutmeg sugar.",
-        priceZar: 50.00,
-        category: "Sides & Starters",
-        portion: "6 Pieces",
+        name: "Warm Spiced Puff Puff (6 Pieces)",
+        description: "Golden spheres of sweet fermented dough lightly dusted with nutmeg and cinnamon sugar, crisp on the outside and airy inside.",
+        priceZar: 60.00,
+        category: "Sides & Snacks",
+        portion: "6 Pieces in Box",
         spice: "None",
         proteins: [],
         swallows: [],
         tags: ["VEGETARIAN"],
-        prepTime: 10
+        prepTime: 10,
+        imageUrl: "images/side_2.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80"
       },
       {
+        id: "side_3",
+        name: "Nigerian Flaky Meat Pies (2 Pieces)",
+        description: "Traditional buttery golden pastry pocket filled with seasoned minced beef, potatoes, and diced carrots.",
+        priceZar: 75.00,
+        category: "Sides & Snacks",
+        portion: "2 Freshly Baked Pies",
+        spice: "Mild",
+        proteins: ["Minced Beef"],
+        swallows: [],
+        tags: ["HALAL"],
+        prepTime: 10,
+        imageUrl: "images/side_3.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80"
+      },
+
+      // Drinks & Lounge
+      {
         id: "drink_1",
-        name: "306 Signature Chapman Mocktail",
-        description: "The iconic Nigerian cocktail blend of Fanta, Sprite, Angostura bitters, fresh cucumber ribbons, and pomegranate citrus syrup.",
-        priceZar: 65.00,
+        name: "Classic 306 Chapman Mocktail",
+        description: "The iconic Nigerian cocktail blend of Fanta, Sprite, Angostura bitters, fresh cucumber ribbons, pomegranate syrup, and Maraschino cherry.",
+        priceZar: 75.00,
         category: "Drinks & Cocktails",
-        portion: "Tall Glass with Mint",
+        portion: "Tall Chilled Glass",
         spice: "None",
         proteins: [],
         swallows: [],
-        tags: ["NON_ALCOHOLIC"],
-        prepTime: 5
+        tags: ["BESTSELLER", "DRINK"],
+        prepTime: 5,
+        imageUrl: "images/drink_1.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: "drink_2",
+        name: "Zobo Cooler (Hibiscus, Pineapple & Ginger)",
+        description: "Artisanal slow-brewed hibiscus flower nectar spiced with fresh ginger root, pineapple peel, and cloves. Served ice-cold.",
+        priceZar: 50.00,
+        category: "Drinks & Cocktails",
+        portion: "500ml Bottle",
+        spice: "Spiced Zing",
+        proteins: [],
+        swallows: [],
+        tags: ["VEGAN", "DRINK"],
+        prepTime: 5,
+        imageUrl: "images/drink_2.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: "drink_3",
         name: "Ice Cold Malta Guinness",
         description: "Imported premium African malt beverage brewed with barley and essential B-vitamins.",
         priceZar: 45.00,
@@ -1685,8 +1958,25 @@
         spice: "None",
         proteins: [],
         swallows: [],
-        tags: ["HALAL"],
-        prepTime: 2
+        tags: ["HALAL", "DRINK"],
+        prepTime: 2,
+        imageUrl: "images/drink_3.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: "drink_4",
+        name: "Fresh Sweet Palm Wine",
+        description: "Authentic naturally tapped palm nectar chilled for refreshing lounge drinking in Cape Town.",
+        priceZar: 85.00,
+        category: "Drinks & Cocktails",
+        portion: "500ml Carafe",
+        spice: "None",
+        proteins: [],
+        swallows: [],
+        tags: ["VEGAN", "DRINK"],
+        prepTime: 5,
+        imageUrl: "images/drink_4.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
       }
     ];
 
@@ -1700,7 +1990,6 @@
 
     // Initialize App
     document.addEventListener("DOMContentLoaded", () => {
-      // Set today's date in reservation
       const resDateInput = document.getElementById("resDate");
       if (resDateInput) {
         resDateInput.value = new Date().toISOString().split("T")[0];
@@ -1724,7 +2013,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Render Menu Items
+    // Render Menu Items with Photographs
     function renderMenu() {
       const grid = document.getElementById("menuGrid");
       const query = (document.getElementById("searchBox").value || "").toLowerCase().trim();
@@ -1751,21 +2040,35 @@
           let cls = "badge-bestseller";
           if (t === "HALAL") cls = "badge-halal";
           if (t === "CHEF_SPECIAL") cls = "badge-chef";
+          if (t === "DRINK") cls = "badge-drink";
           return `<span class="badge ${cls}">${t.replace("_", " ")}</span>`;
         }).join("");
 
         return `
           <div class="dish-card">
+            <!-- Food Photograph Header -->
+            <div class="dish-card-img-wrap">
+              <img src="${dish.imageUrl}" 
+                   alt="${dish.name}" 
+                   class="dish-card-img" 
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='${dish.cdnUrl}';">
+              <div class="dish-img-overlay"></div>
+              <div class="dish-img-badges">${badgesHtml}</div>
+              <div class="dish-prep-chip">⏱️ ${dish.prepTime}m</div>
+            </div>
+
+            <!-- Dish Details -->
             <div class="dish-header">
-              <div class="dish-badges">${badgesHtml}</div>
               <h3 class="dish-name">${dish.name}</h3>
               <p class="dish-desc">${dish.description}</p>
               <div class="dish-meta">
-                <span>⏱️ ${dish.prepTime} mins</span>
                 <span>🌶️ ${dish.spice}</span>
                 <span>📦 ${dish.portion}</span>
               </div>
             </div>
+
+            <!-- Price and Action -->
             <div class="dish-footer">
               <div class="dish-price"><span>R</span> ${dish.priceZar.toFixed(2)}</div>
               <button class="btn-add" onclick="openDishModal('${dish.id}')">
@@ -1789,14 +2092,32 @@
       renderMenu();
     }
 
-    // Customization Modal
+    // Customization Modal with Large Photo Banner
     function openDishModal(dishId) {
       currentDish = MENU_ITEMS.find(d => d.id === dishId);
       if (!currentDish) return;
 
+      const modalImg = document.getElementById("modalDishImg");
+      modalImg.src = currentDish.imageUrl;
+      modalImg.onerror = function() {
+        this.onerror = null;
+        this.src = currentDish.cdnUrl || 'images/fallback.jpg';
+      };
+
       document.getElementById("modalDishTitle").innerText = currentDish.name;
+      document.getElementById("modalDishPortion").innerText = `${currentDish.portion} • ⏱️ ~${currentDish.prepTime} mins`;
       document.getElementById("modalDishDesc").innerText = currentDish.description;
       document.getElementById("modalDishPrice").innerText = `R ${currentDish.priceZar.toFixed(2)}`;
+
+      // Badges
+      const badgesContainer = document.getElementById("modalDishBadges");
+      badgesContainer.innerHTML = (currentDish.tags || []).map(t => {
+        let cls = "badge-bestseller";
+        if (t === "HALAL") cls = "badge-halal";
+        if (t === "CHEF_SPECIAL") cls = "badge-chef";
+        if (t === "DRINK") cls = "badge-drink";
+        return `<span class="badge ${cls}">${t.replace("_", " ")}</span>`;
+      }).join("");
 
       // Proteins
       const proteinGroup = document.getElementById("proteinGroup");
@@ -1861,6 +2182,8 @@
           id: currentDish.id,
           name: currentDish.name,
           price: currentDish.priceZar,
+          imageUrl: currentDish.imageUrl,
+          cdnUrl: currentDish.cdnUrl,
           protein: selectedProtein,
           swallow: selectedSwallow,
           spice: selectedSpice,
@@ -1931,7 +2254,7 @@
       document.getElementById("cartDeliveryFee").innerText = `R ${deliveryFee.toFixed(2)}`;
       document.getElementById("cartTotal").innerText = `R ${total.toFixed(2)}`;
 
-      // Render cart items
+      // Render cart items with thumbnails
       const list = document.getElementById("cartItemsList");
       if (cart.length === 0) {
         list.innerHTML = `<div style="text-align: center; padding: 40px 10px; color: var(--text-muted);">
@@ -1942,6 +2265,8 @@
       } else {
         list.innerHTML = cart.map((item, idx) => `
           <div class="cart-item-row">
+            <img src="${item.imageUrl}" alt="${item.name}" class="cart-item-thumb"
+                 onerror="this.onerror=null; this.src='${item.cdnUrl || 'images/fallback.jpg'}';">
             <div class="cart-item-info">
               <h4>${item.name}</h4>
               <span>${[item.protein, item.swallow, item.spice].filter(Boolean).join(" • ")}</span>
@@ -1961,9 +2286,7 @@
       }
     }
 
-    function toggleFeeApproval() {
-      // Toggle logic
-    }
+    function toggleFeeApproval() {}
 
     // Order Placement & WhatsApp Funnel
     function checkoutViaWhatsApp() {

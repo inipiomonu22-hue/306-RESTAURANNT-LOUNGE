@@ -84,7 +84,8 @@ abstract class AppDatabase : RoomDatabase() {
                     dietaryTags = "HALAL,BESTSELLER",
                     preparationTimeMins = 20,
                     isDailySpecial = true,
-                    isChefRecommended = true
+                    isChefRecommended = true,
+                    imageUrl = "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "rice_2",
@@ -96,7 +97,8 @@ abstract class AppDatabase : RoomDatabase() {
                     spiceLevel = "Mild",
                     availableProteins = "Grilled Turkey, Fried Chicken, Peppered Beef",
                     dietaryTags = "HALAL",
-                    preparationTimeMins = 20
+                    preparationTimeMins = 20,
+                    imageUrl = "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "rice_3",
@@ -109,7 +111,8 @@ abstract class AppDatabase : RoomDatabase() {
                     availableProteins = "Assorted Offal & Beef, Boiled Egg, Fried Fish",
                     dietaryTags = "HALAL,CHEF_SPECIAL",
                     preparationTimeMins = 25,
-                    isChefRecommended = true
+                    isChefRecommended = true,
+                    imageUrl = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "rice_4",
@@ -121,7 +124,8 @@ abstract class AppDatabase : RoomDatabase() {
                     spiceLevel = "Medium",
                     availableProteins = "Beef, Chicken, Fried Fish",
                     dietaryTags = "HALAL",
-                    preparationTimeMins = 15
+                    preparationTimeMins = 15,
+                    imageUrl = "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80"
                 ),
                 // Soups and Swallows
                 MenuItemEntity(
@@ -136,7 +140,8 @@ abstract class AppDatabase : RoomDatabase() {
                     availableSwallows = "Pounded Yam, Eba (Garri), Semovita, Amala",
                     dietaryTags = "HALAL,BESTSELLER",
                     preparationTimeMins = 25,
-                    isChefRecommended = true
+                    isChefRecommended = true,
+                    imageUrl = "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "soup_2",
@@ -149,7 +154,8 @@ abstract class AppDatabase : RoomDatabase() {
                     availableProteins = "Beef, Goat Meat, Shaki, Stockfish",
                     availableSwallows = "Pounded Yam, Eba (Garri), Semovita, Amala",
                     dietaryTags = "HALAL",
-                    preparationTimeMins = 25
+                    preparationTimeMins = 25,
+                    imageUrl = "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "soup_3",
@@ -164,7 +170,8 @@ abstract class AppDatabase : RoomDatabase() {
                     dietaryTags = "HALAL,SEAFOOD,CHEF_SPECIAL",
                     preparationTimeMins = 30,
                     isDailySpecial = true,
-                    isChefRecommended = true
+                    isChefRecommended = true,
+                    imageUrl = "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "soup_4",
@@ -177,7 +184,8 @@ abstract class AppDatabase : RoomDatabase() {
                     availableProteins = "Goat Meat, Fried Beef, Smoked Fish, Kpomo",
                     availableSwallows = "Pounded Yam, Eba (Garri), Amala",
                     dietaryTags = "HALAL",
-                    preparationTimeMins = 25
+                    preparationTimeMins = 25,
+                    imageUrl = "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "soup_5",
@@ -190,7 +198,8 @@ abstract class AppDatabase : RoomDatabase() {
                     availableProteins = "Goat Meat, Beef, Periwinkles, Stockfish",
                     availableSwallows = "Pounded Yam, Eba, Semo",
                     dietaryTags = "HALAL",
-                    preparationTimeMins = 25
+                    preparationTimeMins = 25,
+                    imageUrl = "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80"
                 ),
                 // Proteins & Grills
                 MenuItemEntity(
@@ -204,7 +213,8 @@ abstract class AppDatabase : RoomDatabase() {
                     availableProteins = "Prime Beef Fillet",
                     dietaryTags = "HALAL,SPICY,BESTSELLER",
                     preparationTimeMins = 15,
-                    isChefRecommended = true
+                    isChefRecommended = true,
+                    imageUrl = "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "grill_2",
@@ -217,7 +227,8 @@ abstract class AppDatabase : RoomDatabase() {
                     availableProteins = "Charred Goat Meat",
                     dietaryTags = "HALAL,EXTRA_SPICY",
                     preparationTimeMins = 20,
-                    isDailySpecial = true
+                    isDailySpecial = true,
+                    imageUrl = "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "grill_3",
@@ -230,7 +241,8 @@ abstract class AppDatabase : RoomDatabase() {
                     availableProteins = "Fresh Croaker Fish",
                     dietaryTags = "HALAL,SEAFOOD,CHEF_SPECIAL",
                     preparationTimeMins = 30,
-                    isChefRecommended = true
+                    isChefRecommended = true,
+                    imageUrl = "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "grill_4",
@@ -242,7 +254,8 @@ abstract class AppDatabase : RoomDatabase() {
                     spiceLevel = "Medium",
                     availableProteins = "Turkey Wings, Chicken Drumsticks",
                     dietaryTags = "HALAL",
-                    preparationTimeMins = 15
+                    preparationTimeMins = 15,
+                    imageUrl = "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "grill_5",
@@ -254,7 +267,8 @@ abstract class AppDatabase : RoomDatabase() {
                     spiceLevel = "Hot",
                     availableProteins = "Goat Meat, Beef Offal, Catfish",
                     dietaryTags = "HALAL,SPICY",
-                    preparationTimeMins = 20
+                    preparationTimeMins = 20,
+                    imageUrl = "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=600&q=80"
                 ),
                 // Everyday & Vegetarian
                 MenuItemEntity(
@@ -268,7 +282,8 @@ abstract class AppDatabase : RoomDatabase() {
                     availableProteins = "Fried Fish, Boiled Egg, Fried Beef",
                     dietaryTags = "HALAL,VEGETARIAN",
                     preparationTimeMins = 15,
-                    isChefRecommended = true
+                    isChefRecommended = true,
+                    imageUrl = "https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "every_2",
@@ -280,7 +295,8 @@ abstract class AppDatabase : RoomDatabase() {
                     spiceLevel = "Medium",
                     availableProteins = "Smoked Catfish, Fried Beef",
                     dietaryTags = "HALAL",
-                    preparationTimeMins = 20
+                    preparationTimeMins = 20,
+                    imageUrl = "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "every_3",
@@ -291,7 +307,8 @@ abstract class AppDatabase : RoomDatabase() {
                     portionDescription = "2 Wrapped Portions",
                     spiceLevel = "Mild",
                     dietaryTags = "HALAL,GLUTEN_FREE",
-                    preparationTimeMins = 10
+                    preparationTimeMins = 10,
+                    imageUrl = "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80"
                 ),
                 // Sides & Snacks
                 MenuItemEntity(
@@ -302,7 +319,8 @@ abstract class AppDatabase : RoomDatabase() {
                     category = "Sides & Snacks",
                     portionDescription = "Side Bowl",
                     dietaryTags = "VEGETARIAN,VEGAN,BESTSELLER",
-                    preparationTimeMins = 10
+                    preparationTimeMins = 10,
+                    imageUrl = "https://images.unsplash.com/photo-1528736235302-52922df5c122?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "side_2",
@@ -312,7 +330,8 @@ abstract class AppDatabase : RoomDatabase() {
                     category = "Sides & Snacks",
                     portionDescription = "6 Pieces in Box",
                     dietaryTags = "VEGETARIAN",
-                    preparationTimeMins = 10
+                    preparationTimeMins = 10,
+                    imageUrl = "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "side_3",
@@ -322,7 +341,8 @@ abstract class AppDatabase : RoomDatabase() {
                     category = "Sides & Snacks",
                     portionDescription = "2 Freshly Baked Pies",
                     dietaryTags = "HALAL",
-                    preparationTimeMins = 10
+                    preparationTimeMins = 10,
+                    imageUrl = "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80"
                 ),
                 // Drinks & Lounge
                 MenuItemEntity(
@@ -334,7 +354,8 @@ abstract class AppDatabase : RoomDatabase() {
                     portionDescription = "Large Chilled Glass",
                     dietaryTags = "VEGETARIAN,BESTSELLER",
                     preparationTimeMins = 5,
-                    isChefRecommended = true
+                    isChefRecommended = true,
+                    imageUrl = "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "drink_2",
@@ -344,7 +365,8 @@ abstract class AppDatabase : RoomDatabase() {
                     category = "Drinks & Cocktails",
                     portionDescription = "500ml Bottle",
                     dietaryTags = "VEGAN",
-                    preparationTimeMins = 5
+                    preparationTimeMins = 5,
+                    imageUrl = "https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "drink_3",
@@ -354,7 +376,8 @@ abstract class AppDatabase : RoomDatabase() {
                     category = "Drinks & Cocktails",
                     portionDescription = "330ml Can",
                     dietaryTags = "HALAL",
-                    preparationTimeMins = 2
+                    preparationTimeMins = 2,
+                    imageUrl = "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=600&q=80"
                 ),
                 MenuItemEntity(
                     id = "drink_4",
@@ -364,7 +387,8 @@ abstract class AppDatabase : RoomDatabase() {
                     category = "Drinks & Cocktails",
                     portionDescription = "500ml Carafe",
                     dietaryTags = "VEGAN",
-                    preparationTimeMins = 5
+                    preparationTimeMins = 5,
+                    imageUrl = "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
                 )
             )
             database.menuDao().insertMenuItems(initialMenuItems)
