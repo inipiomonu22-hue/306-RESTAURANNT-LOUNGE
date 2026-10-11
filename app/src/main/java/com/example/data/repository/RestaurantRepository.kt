@@ -140,7 +140,9 @@ class RestaurantRepository(private val database: AppDatabase) {
         collectionTimeSlot: String,
         paymentMethod: PaymentMethod,
         specialNotes: String,
-        selectedCourier: CourierProvider? = null
+        selectedCourier: CourierProvider? = null,
+        customPaymentRef: String? = null,
+        isAlreadyPaid: Boolean = false
     ): OrderEntity {
         val orderNum = (1000..9999).random()
         val orderId = "306-$orderNum"
@@ -153,17 +155,17 @@ class RestaurantRepository(private val database: AppDatabase) {
         )
         val total = subtotal + deliveryFee
 
-        val isPaidNow = paymentMethod in listOf(
+        val isPaidNow = isAlreadyPaid || (paymentMethod in listOf(
             PaymentMethod.PAYFAST,
             PaymentMethod.YOCO,
             PaymentMethod.PEACH_PAYMENTS,
             PaymentMethod.INSTANT_EFT,
             PaymentMethod.SNAPSCAN_ZAPPER
-        )
+        ) && customPaymentRef != null)
 
         val initialStatus = if (isPaidNow) OrderStatus.CONFIRMED.name else OrderStatus.RECEIVED.name
         val paymentStatus = if (isPaidNow) PaymentStatus.PAID.name else PaymentStatus.PENDING.name
-        val paymentRef = if (isPaidNow) "PAY-306-${UUID.randomUUID().toString().take(8).uppercase()}" else ""
+        val paymentRef = customPaymentRef ?: (if (isPaidNow) "PAY-306-${UUID.randomUUID().toString().take(8).uppercase()}" else "")
 
         val etaTime = when (fulfilmentType) {
             FulfilmentType.COLLECTION_PICKUP -> "Ready in 20-30 mins"

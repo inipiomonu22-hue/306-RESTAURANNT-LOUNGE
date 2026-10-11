@@ -198,6 +198,64 @@ fun OrderTrackingScreen(
                     )
                 }
             }
+
+            // Active Notification Callout (Ready for Pickup / Out for Delivery)
+            if (currentOrder.status == OrderStatus.READY_FOR_PICKUP.name) {
+                Spacer(modifier = Modifier.height(14.dp))
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(containerColor = ForestHerbs.copy(alpha = 0.2f)),
+                    border = androidx.compose.foundation.BorderStroke(1.5.dp, ForestHerbs),
+                    shape = RoundedCornerShape(14.dp)
+                ) {
+                    Row(modifier = Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Icon(Icons.Default.Storefront, contentDescription = null, tint = ForestHerbs, modifier = Modifier.size(32.dp))
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Column {
+                            Text(
+                                text = "🔔 YOUR ORDER IS READY FOR COLLECTION!",
+                                fontWeight = FontWeight.ExtraBold,
+                                color = Color.White,
+                                fontSize = 14.sp
+                            )
+                            Spacer(modifier = Modifier.height(2.dp))
+                            Text(
+                                text = "Your food is freshly packaged. Please collect at 306 Lounge bar counter (306 Long St, Cape Town). Quote #${currentOrder.orderId}.",
+                                fontSize = 12.sp,
+                                color = Color.LightGray
+                            )
+                        }
+                    }
+                }
+            } else if (currentOrder.status == OrderStatus.OUT_FOR_DELIVERY.name) {
+                Spacer(modifier = Modifier.height(14.dp))
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(containerColor = GoldPrimary.copy(alpha = 0.15f)),
+                    border = androidx.compose.foundation.BorderStroke(1.5.dp, GoldPrimary),
+                    shape = RoundedCornerShape(14.dp)
+                ) {
+                    Row(modifier = Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Icon(Icons.Default.DirectionsBike, contentDescription = null, tint = GoldPrimary, modifier = Modifier.size(32.dp))
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Column {
+                            Text(
+                                text = "🛵 ORDER IS OUT FOR DELIVERY!",
+                                fontWeight = FontWeight.ExtraBold,
+                                color = GoldPrimary,
+                                fontSize = 14.sp
+                            )
+                            Spacer(modifier = Modifier.height(2.dp))
+                            Text(
+                                text = "Driver ${currentOrder.assignedDriverName ?: "306 Fleet Courier"} is en route with your insulated thermal food package.",
+                                fontSize = 12.sp,
+                                color = Color.White
+                            )
+                        }
+                    }
+                }
+            }
+
             Spacer(modifier = Modifier.height(18.dp))
         }
 

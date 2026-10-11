@@ -33,16 +33,18 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.filled.Restaurant
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.Storefront
+import androidx.compose.material.icons.filled.Call
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import com.example.ui.components.WhatsAppHelper
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Tab
@@ -462,6 +464,27 @@ fun AdminDashboardScreen(
                                                 )
                                             }
                                             StatusBadge(status = order.status)
+                                            Spacer(modifier = Modifier.width(4.dp))
+                                            IconButton(
+                                                onClick = {
+                                                    val msg = if (fType == FulfilmentType.COLLECTION_PICKUP) {
+                                                        "Hi ${order.customerName}, your order #${order.orderId} from 306 Restaurant & Lounge is READY FOR COLLECTION at 306 Long Street, Cape Town! Please present this message at the front desk."
+                                                    } else {
+                                                        "Hi ${order.customerName}, your order #${order.orderId} from 306 Restaurant & Lounge is OUT FOR DELIVERY to ${order.deliveryAddress}. Estimated arrival: ${order.estimatedFulfilmentTime}."
+                                                    }
+                                                    val cleanPhone = order.customerPhone.replace(Regex("[^0-9]"), "")
+                                                    val url = "https://api.whatsapp.com/send?phone=$cleanPhone&text=${android.net.Uri.encode(msg)}"
+                                                    WhatsAppHelper.openWhatsApp(context, url)
+                                                },
+                                                modifier = Modifier.size(32.dp)
+                                            ) {
+                                                Icon(
+                                                    imageVector = Icons.Default.Call,
+                                                    contentDescription = "Notify via WhatsApp",
+                                                    tint = ForestHerbs,
+                                                    modifier = Modifier.size(18.dp)
+                                                )
+                                            }
                                         }
 
                                         Spacer(modifier = Modifier.height(8.dp))

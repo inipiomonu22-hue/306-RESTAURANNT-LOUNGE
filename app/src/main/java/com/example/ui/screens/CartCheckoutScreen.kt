@@ -30,14 +30,21 @@ import androidx.compose.material.icons.filled.LocalShipping
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.filled.Storefront
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import com.example.data.model.PayFastPaymentRequest
+import com.example.ui.components.PayFastCheckoutDialog
+import java.util.UUID
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -99,6 +106,9 @@ fun CartCheckoutScreen(
     var selectedCollectionSlot by remember { mutableStateOf("Today: 20:00 - 20:30") }
     var selectedPaymentMethod by remember { mutableStateOf(PaymentMethod.PAYFAST) }
     var specialNotes by remember { mutableStateOf("") }
+    var showPayFastDialog by remember { mutableStateOf(false) }
+    var feeApprovedByUser by remember { mutableStateOf(true) }
+    var feeApprovalError by remember { mutableStateOf<String?>(null) }
 
     val collectionSlots = listOf(
         "ASAP (~20 - 30 mins)",
@@ -107,6 +117,77 @@ fun CartCheckoutScreen(
         "Today: 20:30 - 21:00",
         "Today: 21:00 - 21:30"
     )
+
+    val minOrderRequired = if (selectedFulfilmentType == FulfilmentType.RESTAURANT_DELIVERY) selectedZone?.minOrderZar ?: 0.0 else 0.0
+    val isMinOrderMet = subtotal >= minOrderRequired
+
+    val handleConfirmOrder: () -> Unit = {
+        if (!isMinOrderMet) {
+            feeApprovalError = "Minimum food subtotal for ${selectedZone?.zoneName ?: "delivery"} is R ${minOrderRequired.toInt()}. Please add R ${String.format(Locale.US, "%.2f", minOrderRequired - subtotal)} more or switch to Collection."
+        } else if (!feeApprovedByUser) {
+            feeApprovalError = "Please check the box below to approve the R ${String.format(Locale.US, "%.2f", deliveryFee)} fulfilment fee before payment."
+        } else {
+            feeApprovalError = null
+            if (selectedPaymentMethod == PaymentMethod.PAYFAST) {
+                showPayFastDialog = true
+            } else {
+                viewModel.placeOrder(
+                    customerName = customerName,
+                    customerPhone = customerPhone,
+                    customerEmail = customerEmail,
+                    deliveryAddress = deliveryAddress,
+                    deliveryInstructions = deliveryInstructions,
+                    collectionTimeSlot = selectedCollectionSlot,
+                    paymentMethod = selectedPaymentMethod,
+                    specialNotes = specialNotes,
+                    customPaymentRef = if (selectedPaymentMethod != PaymentMethod.CASH_ON_DELIVERY) "GATEWAY-${UUID.randomUUID().toString().take(8).uppercase()}" else null,
+                    isAlreadyPaid = selectedPaymentMethod != PaymentMethod.CASH_ON_DELIVERY,
+                    onSuccess = { order ->
+                        onOrderPlaced(order.orderId)
+                    }
+                )
+            }
+        }
+    }
+
+    if (showPayFastDialog) {
+        PayFastCheckoutDialog(
+            request = PayFastPaymentRequest(
+                orderId = "PRE-${System.currentTimeMillis().toString().takeLast(6)}",
+                amountZar = totalAmount,
+                itemName = "306 Lounge Order (${cartItems.size} items)",
+                itemDescription = "Nigerian Feast: ${selectedFulfilmentType.title}",
+                customerEmail = customerEmail.ifBlank { "customer@306lounge.co.za" },
+                customerFirstName = customerName.split(" ").firstOrNull() ?: "Guest",
+                customerLastName = customerName.split(" ").drop(1).joinToString(" ").ifBlank { "Customer" },
+                customerPhone = customerPhone
+            ),
+            onPaymentSuccess = { paymentReference ->
+                showPayFastDialog = false
+                viewModel.placeOrder(
+                    customerName = customerName,
+                    customerPhone = customerPhone,
+                    customerEmail = customerEmail,
+                    deliveryAddress = deliveryAddress,
+                    deliveryInstructions = deliveryInstructions,
+                    collectionTimeSlot = selectedCollectionSlot,
+                    paymentMethod = PaymentMethod.PAYFAST,
+                    specialNotes = specialNotes,
+                    customPaymentRef = paymentReference,
+                    isAlreadyPaid = true,
+                    onSuccess = { order ->
+                        onOrderPlaced(order.orderId)
+                    }
+                )
+            },
+            onPaymentCancelled = {
+                showPayFastDialog = false
+            },
+            onDismissRequest = {
+                showPayFastDialog = false
+            }
+        )
+    }
 
     if (cartItems.isEmpty()) {
         Box(
@@ -476,25 +557,69 @@ fun CartCheckoutScreen(
                             }
                         }
 
-                        Spacer(modifier = Modifier.height(16.dp))
+                        // Minimum Order Warning
+                        if (!isMinOrderMet) {
+                            Spacer(modifier = Modifier.height(10.dp))
+                            Card(
+                                modifier = Modifier.fillMaxWidth(),
+                                colors = CardDefaults.cardColors(containerColor = TerracottaAccent.copy(alpha = 0.15f)),
+                                border = androidx.compose.foundation.BorderStroke(1.dp, TerracottaAccent),
+                                shape = RoundedCornerShape(10.dp)
+                            ) {
+                                Row(modifier = Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
+                                    Icon(Icons.Default.Warning, contentDescription = null, tint = TerracottaAccent, modifier = Modifier.size(20.dp))
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    Text(
+                                        text = "Minimum food subtotal for ${selectedZone?.zoneName ?: "delivery"} is R ${minOrderRequired.toInt()}. Add R ${String.format(Locale.US, "%.2f", minOrderRequired - subtotal)} more to qualify for delivery, or switch to Collection.",
+                                        fontSize = 11.sp,
+                                        color = Color.White
+                                    )
+                                }
+                            }
+                        }
+
+                        // Mandatory Delivery Fee Approval Checkbox
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(8.dp))
+                                .background(ObsidianElevated)
+                                .clickable { feeApprovedByUser = !feeApprovedByUser }
+                                .padding(horizontal = 10.dp, vertical = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Checkbox(
+                                checked = feeApprovedByUser,
+                                onCheckedChange = { feeApprovedByUser = it },
+                                colors = CheckboxDefaults.colors(checkedColor = GoldPrimary, checkmarkColor = ObsidianDark)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Column {
+                                Text(
+                                    text = "I approve the ${if (deliveryFee == 0.0) "FREE" else "R ${String.format(Locale.US, "%.2f", deliveryFee)}"} fee for ${selectedFulfilmentType.title}",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 12.sp,
+                                    color = if (feeApprovedByUser) Color.White else AfricanBronze
+                                )
+                                Text(
+                                    text = if (deliveryFee == 0.0) "Complimentary collection / free delivery applied" else "Estimated & verified for ${selectedZone?.zoneName ?: selectedCourier.providerName}",
+                                    fontSize = 10.sp,
+                                    color = Color.Gray
+                                )
+                            }
+                        }
+
+                        feeApprovalError?.let { err ->
+                            Spacer(modifier = Modifier.height(6.dp))
+                            Text(text = err, color = TerracottaAccent, fontSize = 11.sp, fontWeight = FontWeight.SemiBold)
+                        }
+
+                        Spacer(modifier = Modifier.height(14.dp))
 
                         Button(
-                            onClick = {
-                                viewModel.placeOrder(
-                                    customerName = customerName,
-                                    customerPhone = customerPhone,
-                                    customerEmail = customerEmail,
-                                    deliveryAddress = deliveryAddress,
-                                    deliveryInstructions = deliveryInstructions,
-                                    collectionTimeSlot = selectedCollectionSlot,
-                                    paymentMethod = selectedPaymentMethod,
-                                    specialNotes = specialNotes,
-                                    onSuccess = { order ->
-                                        onOrderPlaced(order.orderId)
-                                    }
-                                )
-                            },
-                            colors = ButtonDefaults.buttonColors(containerColor = GoldPrimary),
+                            onClick = handleConfirmOrder,
+                            colors = ButtonDefaults.buttonColors(containerColor = if (isMinOrderMet && feeApprovedByUser) GoldPrimary else AfricanBronze),
                             shape = RoundedCornerShape(12.dp),
                             modifier = Modifier.fillMaxWidth().height(50.dp)
                         ) {
@@ -859,25 +984,69 @@ fun CartCheckoutScreen(
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(20.dp))
+                    // Minimum Order Warning
+                    if (!isMinOrderMet) {
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = CardDefaults.cardColors(containerColor = TerracottaAccent.copy(alpha = 0.15f)),
+                            border = androidx.compose.foundation.BorderStroke(1.dp, TerracottaAccent),
+                            shape = RoundedCornerShape(10.dp)
+                        ) {
+                            Row(modifier = Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
+                                Icon(Icons.Default.Warning, contentDescription = null, tint = TerracottaAccent, modifier = Modifier.size(20.dp))
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = "Minimum food subtotal for ${selectedZone?.zoneName ?: "delivery"} is R ${minOrderRequired.toInt()}. Add R ${String.format(Locale.US, "%.2f", minOrderRequired - subtotal)} more to qualify for delivery, or switch to Collection.",
+                                    fontSize = 12.sp,
+                                    color = Color.White
+                                )
+                            }
+                        }
+                    }
+
+                    // Mandatory Delivery Fee Approval Checkbox
+                    Spacer(modifier = Modifier.height(12.dp))
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(8.dp))
+                            .background(ObsidianElevated)
+                            .clickable { feeApprovedByUser = !feeApprovedByUser }
+                            .padding(horizontal = 10.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Checkbox(
+                            checked = feeApprovedByUser,
+                            onCheckedChange = { feeApprovedByUser = it },
+                            colors = CheckboxDefaults.colors(checkedColor = GoldPrimary, checkmarkColor = ObsidianDark)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Column {
+                            Text(
+                                text = "I approve the ${if (deliveryFee == 0.0) "FREE" else "R ${String.format(Locale.US, "%.2f", deliveryFee)}"} fee for ${selectedFulfilmentType.title}",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 12.sp,
+                                color = if (feeApprovedByUser) Color.White else AfricanBronze
+                            )
+                            Text(
+                                text = if (deliveryFee == 0.0) "Complimentary collection / free delivery applied" else "Estimated & verified for ${selectedZone?.zoneName ?: selectedCourier.providerName}",
+                                fontSize = 10.sp,
+                                color = Color.Gray
+                            )
+                        }
+                    }
+
+                    feeApprovalError?.let { err ->
+                        Spacer(modifier = Modifier.height(6.dp))
+                        Text(text = err, color = TerracottaAccent, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+                    }
+
+                    Spacer(modifier = Modifier.height(18.dp))
 
                     Button(
-                        onClick = {
-                            viewModel.placeOrder(
-                                customerName = customerName,
-                                customerPhone = customerPhone,
-                                customerEmail = customerEmail,
-                                deliveryAddress = deliveryAddress,
-                                deliveryInstructions = deliveryInstructions,
-                                collectionTimeSlot = selectedCollectionSlot,
-                                paymentMethod = selectedPaymentMethod,
-                                specialNotes = specialNotes,
-                                onSuccess = { order ->
-                                    onOrderPlaced(order.orderId)
-                                }
-                            )
-                        },
-                        colors = ButtonDefaults.buttonColors(containerColor = GoldPrimary),
+                        onClick = handleConfirmOrder,
+                        colors = ButtonDefaults.buttonColors(containerColor = if (isMinOrderMet && feeApprovedByUser) GoldPrimary else AfricanBronze),
                         shape = RoundedCornerShape(12.dp),
                         modifier = Modifier
                             .fillMaxWidth()

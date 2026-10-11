@@ -4,9 +4,12 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -16,13 +19,19 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AdminPanelSettings
+import androidx.compose.material.icons.filled.DesktopWindows
 import androidx.compose.material.icons.filled.DirectionsBike
 import androidx.compose.material.icons.filled.EventSeat
+import androidx.compose.material.icons.filled.PhoneAndroid
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Surface
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocalShipping
 import androidx.compose.material.icons.filled.QrCode
@@ -92,6 +101,7 @@ fun AppNavigation(
 ) {
     var currentScreen by remember { mutableStateOf(AppScreen.HOME) }
     var currentTrackingOrderId by remember { mutableStateOf<String?>(null) }
+    var forceWideLayout by remember { mutableStateOf(false) }
     val cartCount by viewModel.cartItemCount.collectAsState()
     val activeOrders by viewModel.activeOrders.collectAsState()
     val uiMessage by viewModel.uiMessage.collectAsState()
@@ -112,7 +122,7 @@ fun AppNavigation(
     }
 
     BoxWithConstraints(modifier = modifier.fillMaxSize().background(ObsidianDark)) {
-        val isWideScreen = maxWidth >= 600.dp
+        val isWideScreen = maxWidth >= 580.dp || forceWideLayout
 
         if (isWideScreen) {
             // WIDE SCREEN / TABLET PREVIEW LAYOUT WITH NAVIGATION RAIL
@@ -304,6 +314,22 @@ fun AppNavigation(
                                     unselectedTextColor = Color.Gray
                                 )
                             )
+
+                            Spacer(modifier = Modifier.height(14.dp))
+
+                            OutlinedButton(
+                                onClick = { forceWideLayout = false },
+                                shape = RoundedCornerShape(12.dp),
+                                border = androidx.compose.foundation.BorderStroke(1.dp, GoldPrimary),
+                                contentPadding = PaddingValues(horizontal = 6.dp, vertical = 2.dp),
+                                modifier = Modifier.padding(horizontal = 4.dp).height(28.dp)
+                            ) {
+                                Icon(Icons.Default.PhoneAndroid, contentDescription = null, tint = GoldPrimary, modifier = Modifier.size(12.dp))
+                                Spacer(modifier = Modifier.width(3.dp))
+                                Text("Phone", color = GoldPrimary, fontSize = 9.sp, fontWeight = FontWeight.Bold)
+                            }
+
+                            Spacer(modifier = Modifier.height(16.dp))
                         }
                     }
                 )
@@ -324,10 +350,117 @@ fun AppNavigation(
                 }
             }
         } else {
-            // COMPACT SCREEN PHONE LAYOUT WITH BOTTOM NAVIGATION
+            // COMPACT SCREEN PHONE LAYOUT WITH TOP FEATURE BAR & BOTTOM NAVIGATION
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
                 snackbarHost = { SnackbarHost(snackbarHostState) },
+                topBar = {
+                    Surface(
+                        color = ObsidianSurface,
+                        tonalElevation = 4.dp,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 8.dp, bottom = 6.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 14.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Image(
+                                        painter = painterResource(id = R.drawable.logo_306),
+                                        contentDescription = "306 Logo",
+                                        modifier = Modifier
+                                            .size(28.dp)
+                                            .clip(RoundedCornerShape(6.dp))
+                                    )
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    Column {
+                                        Text(
+                                            text = "306 RESTAURANT & LOUNGE",
+                                            fontWeight = FontWeight.ExtraBold,
+                                            color = GoldPrimary,
+                                            fontSize = 12.sp
+                                        )
+                                        Text(
+                                            text = "CAPE TOWN • FULFILMENT",
+                                            fontWeight = FontWeight.Bold,
+                                            color = Color.Gray,
+                                            fontSize = 8.sp,
+                                            letterSpacing = 1.sp
+                                        )
+                                    }
+                                }
+
+                                OutlinedButton(
+                                    onClick = { forceWideLayout = true },
+                                    shape = RoundedCornerShape(20.dp),
+                                    border = androidx.compose.foundation.BorderStroke(1.dp, GoldPrimary),
+                                    contentPadding = PaddingValues(horizontal = 8.dp, vertical = 2.dp),
+                                    modifier = Modifier.height(28.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.DesktopWindows,
+                                        contentDescription = "Toggle Big Screen",
+                                        tint = GoldPrimary,
+                                        modifier = Modifier.size(13.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Text(
+                                        text = "Full Big Screen",
+                                        color = GoldPrimary,
+                                        fontSize = 10.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                }
+                            }
+
+                            Spacer(modifier = Modifier.height(6.dp))
+
+                            // Quick Feature Switcher Chips
+                            LazyRow(
+                                modifier = Modifier.fillMaxWidth(),
+                                contentPadding = PaddingValues(horizontal = 12.dp),
+                                horizontalArrangement = Arrangement.spacedBy(6.dp)
+                            ) {
+                                items(AppScreen.values()) { screen ->
+                                    val isSelected = currentScreen == screen
+                                    val label = when (screen) {
+                                        AppScreen.CART -> if (cartCount > 0) "Order ($cartCount)" else "Order"
+                                        AppScreen.TRACKING -> if (activeOrders.isNotEmpty()) "Track (${activeOrders.size})" else "Track"
+                                        else -> screen.label
+                                    }
+                                    Box(
+                                        modifier = Modifier
+                                            .clip(RoundedCornerShape(14.dp))
+                                            .background(if (isSelected) GoldPrimary else ObsidianElevated)
+                                            .border(1.dp, if (isSelected) GoldPrimary else ObsidianBorder, RoundedCornerShape(14.dp))
+                                            .clickable {
+                                                if (screen == AppScreen.TRACKING && currentTrackingOrderId == null && activeOrders.isNotEmpty()) {
+                                                    currentTrackingOrderId = activeOrders.first().orderId
+                                                }
+                                                currentScreen = screen
+                                            }
+                                            .padding(horizontal = 10.dp, vertical = 4.dp)
+                                    ) {
+                                        Text(
+                                            text = label,
+                                            color = if (isSelected) ObsidianDark else Color.White,
+                                            fontSize = 11.sp,
+                                            fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 bottomBar = {
                     NavigationBar(
                         containerColor = ObsidianSurface,

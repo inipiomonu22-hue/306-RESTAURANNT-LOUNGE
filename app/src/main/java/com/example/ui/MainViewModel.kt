@@ -176,6 +176,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         collectionTimeSlot: String,
         paymentMethod: PaymentMethod,
         specialNotes: String,
+        customPaymentRef: String? = null,
+        isAlreadyPaid: Boolean = false,
         onSuccess: (OrderEntity) -> Unit
     ) {
         viewModelScope.launch {
@@ -191,7 +193,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     collectionTimeSlot = collectionTimeSlot,
                     paymentMethod = paymentMethod,
                     specialNotes = specialNotes,
-                    selectedCourier = if (selectedFulfilmentType.value == FulfilmentType.THIRD_PARTY_COURIER) selectedCourier.value else null
+                    selectedCourier = if (selectedFulfilmentType.value == FulfilmentType.THIRD_PARTY_COURIER) selectedCourier.value else null,
+                    customPaymentRef = customPaymentRef,
+                    isAlreadyPaid = isAlreadyPaid
                 )
                 trackedOrderId.value = order.orderId
                 uiMessage.value = "Order #${order.orderId} placed successfully!"

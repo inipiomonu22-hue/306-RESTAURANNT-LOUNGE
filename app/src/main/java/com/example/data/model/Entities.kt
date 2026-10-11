@@ -136,3 +136,28 @@ data class RestaurantSettingsEntity(
     val isOpenForOrders: Boolean = true,
     val activePaymentProvider: String = "PayFast / Yoco"
 )
+
+@Entity(tableName = "user_profiles")
+data class UserProfileEntity(
+    @PrimaryKey
+    val userId: String = "cust_306",
+    val fullName: String = "Chidi Okafor",
+    val phone: String = "+27 72 123 4567",
+    val email: String = "chidi@capetown.co.za",
+    val preferredSwallow: String = "Pounded Yam",
+    val preferredSpiceLevel: String = "Medium Hot",
+    val loyaltyPoints: Int = 180
+)
+
+@Entity(tableName = "saved_addresses")
+data class SavedAddressEntity(
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
+    val title: String, // "Home", "Work / Office", "Waterfront Apartment"
+    val streetAddress: String,
+    val suburb: String,
+    val zoneName: String,
+    val deliveryInstructions: String = "",
+    val isDefault: Boolean = false
+)
+
