@@ -1059,8 +1059,8 @@
   <!-- Live Status Bar -->
   <div class="status-strip">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-      <div><span class="dot"></span> <strong>KITCHEN OPEN NOW:</strong> Mon - Sun: 12:00 PM - 11:30 PM • 306 Long Street, Cape Town</div>
-      <div style="font-weight: 700;">📞 +27 21 306 3060 • WhatsApp: +27 71 306 3060</div>
+      <div><span class="dot"></span> <strong>KITCHEN OPEN NOW:</strong> Mon - Sun: 12:00 PM - 11:30 PM • Unit 2, Eclipse Park, Village Walk, Parklands, Cape Town</div>
+      <div style="font-weight: 700;">📞 +27 68 336 8458 / +27 83 719 1341 • WhatsApp: +27 71 306 3060</div>
     </div>
   </div>
 
@@ -1080,6 +1080,7 @@
           <li><button class="nav-btn active" onclick="switchTab('menu')">🍽️ Menu</button></li>
           <li><button class="nav-btn" onclick="switchTab('track')">🛵 Track Order</button></li>
           <li><button class="nav-btn" onclick="switchTab('reservation')">🍷 Book Table</button></li>
+          <li><button class="nav-btn" onclick="switchTab('media')">📸 Media Library</button></li>
           <li><button class="nav-btn" onclick="switchTab('admin')">📊 Kitchen Portal</button></li>
           <li><button class="nav-btn" onclick="switchTab('qrposter')">🖨️ QR Poster</button></li>
         </ul>
@@ -1143,11 +1144,73 @@
         </div>
       </section>
 
+      <!-- 306 AMBIENCE & PROMOTIONS SHOWCASE -->
+      <section style="margin-bottom: 30px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 16px;">
+          <div>
+            <div style="font-size: 11px; font-weight: 800; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase;">Authentic Restaurant Atmosphere</div>
+            <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--text-main); margin-top: 4px;">306 Ambience & Lounge Experience</h3>
+          </div>
+          <button class="btn-secondary" style="padding: 6px 14px; font-size: 12px;" onclick="switchTab('media')">View All 47 Media Assets &rarr;</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+          <!-- Main Lounge -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden;">
+            <div style="height: 160px; overflow: hidden; position: relative;">
+              <img src="restaurant-media/optimised/interior_main_lounge.jpg" alt="306 Dining Lounge" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='images/interior_main_lounge.jpg'">
+              <span class="badge badge-bestseller" style="position: absolute; top: 10px; left: 10px;">MAIN LOUNGE</span>
+            </div>
+            <div style="padding: 14px;">
+              <h4 style="font-size: 15px; font-weight: 700; color: var(--gold-primary);">Dining Room & Gold Bar</h4>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Warm gold finishes, curated Afrobeats soundscape, and spacious group dining.</p>
+            </div>
+          </div>
+
+          <!-- Cocktail Bar -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden;">
+            <div style="height: 160px; overflow: hidden; position: relative;">
+              <img src="restaurant-media/optimised/interior_cocktail_bar.jpg" alt="Luxury Cocktail Bar" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='images/interior_cocktail_bar.jpg'">
+              <span class="badge badge-halal" style="position: absolute; top: 10px; left: 10px;">COCKTAIL BAR</span>
+            </div>
+            <div style="padding: 14px;">
+              <h4 style="font-size: 15px; font-weight: 700; color: var(--gold-primary);">306 Bottle & Cocktail Bar</h4>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Craft Nigerian cocktails, Chapman mocktails, and imported African spirits.</p>
+            </div>
+          </div>
+
+          <!-- VIP Velvet Booth -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden;">
+            <div style="height: 160px; overflow: hidden; position: relative;">
+              <img src="restaurant-media/optimised/interior_vip_booth.jpg" alt="Private VIP Booth" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='images/interior_vip_booth.jpg'">
+              <span class="badge badge-bestseller" style="position: absolute; top: 10px; left: 10px;">VIP BOOTH</span>
+            </div>
+            <div style="padding: 14px;">
+              <h4 style="font-size: 15px; font-weight: 700; color: var(--gold-primary);">Private Velvet Dining</h4>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Intimate private booths ideal for birthday celebrations and VIP reservations.</p>
+            </div>
+          </div>
+
+          <!-- Live Grill Sizzle Video -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden;">
+            <div style="height: 160px; background: #000; position: relative;">
+              <video src="restaurant-media/originals/food-videos/suya_grill_flame_sizzle.mp4" style="width: 100%; height: 100%; object-fit: cover;" autoplay loop muted playsinline></video>
+              <span class="badge badge-halal" style="position: absolute; top: 10px; left: 10px;">LIVE SIZZLE VIDEO</span>
+            </div>
+            <div style="padding: 14px;">
+              <h4 style="font-size: 15px; font-weight: 700; color: var(--gold-primary);">Charcoal Suya Grilling</h4>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Authentic open flame woodsmoke grilling with Hausa Yaji peanut spice.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Category Filter and Search -->
       <section id="menu-items-section" class="filter-section">
         <div class="filter-bar">
           <div class="categories-wrap" id="categoryContainer">
-            <button class="category-pill active" onclick="filterCategory('All')">All Items (24)</button>
+            <button class="category-pill active" onclick="filterCategory('All')">All Items (29)</button>
+            <button class="category-pill" onclick="filterCategory('Chef Specials')">⭐ Chef Specials</button>
             <button class="category-pill" onclick="filterCategory('Rice Dishes')">🍚 Rice Dishes</button>
             <button class="category-pill" onclick="filterCategory('Soups & Swallows')">🍲 Soups & Swallows</button>
             <button class="category-pill" onclick="filterCategory('Proteins & Grills')">🥩 Grills & Suya</button>
@@ -1356,6 +1419,114 @@
               <!-- Rendered via JS -->
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: MEDIA LIBRARY & ASSET REPOSITORY -->
+  <div id="tab-media" class="tab-view">
+    <div class="container">
+      <div style="margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+          <div>
+            <div class="hero-badge">📸 OFFICIAL DIGITAL ASSET REPOSITORY</div>
+            <h2 style="font-family: var(--font-serif); font-size: 28px; color: var(--gold-primary); margin-top: 6px;">
+              306 Restaurant & Lounge Media Library
+            </h2>
+            <p style="color: var(--text-muted); font-size: 14px; max-width: 650px; margin-top: 4px;">
+              Original high-resolution Nigerian culinary photography, menu flyers, lounge videos, promotional graphics, and brand assets.
+            </p>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="restaurant-media/media_inventory.json" download="media_inventory.json" class="btn-secondary" style="padding: 8px 14px; font-size: 12px;">
+              📥 Export JSON Inventory
+            </a>
+            <a href="restaurant-media/media_inventory.csv" download="media_inventory.csv" class="btn-secondary" style="padding: 8px 14px; font-size: 12px;">
+              📥 Export CSV Inventory
+            </a>
+            <a href="restaurant-media/extracted_menu_data.json" download="extracted_menu_data.json" class="btn-primary" style="padding: 8px 14px; font-size: 12px;">
+              📋 Extracted Menu Data
+            </a>
+          </div>
+        </div>
+
+        <!-- Metric Counter Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 20px;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px; text-align: center;">
+            <div style="font-size: 24px; font-weight: 800; color: var(--gold-light);">47</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Total Media Assets</div>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px; text-align: center;">
+            <div style="font-size: 24px; font-weight: 800; color: var(--green-light);">28</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Authentic Dishes</div>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px; text-align: center;">
+            <div style="font-size: 24px; font-weight: 800; color: var(--orange-accent);">4</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Lounge & Ambience</div>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px; text-align: center;">
+            <div style="font-size: 24px; font-weight: 800; color: var(--gold-light);">4</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Event Promotions</div>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px; text-align: center;">
+            <div style="font-size: 24px; font-weight: 800; color: var(--green-light);">3</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Menu Flyers</div>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px; text-align: center;">
+            <div style="font-size: 24px; font-weight: 800; color: var(--gold-light);">2</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Original Videos</div>
+          </div>
+        </div>
+
+        <!-- Video Player Showcase -->
+        <div style="margin-top: 24px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px;">
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--gold-light); margin-bottom: 14px;">
+            🎥 Original Restaurant Video Footage
+          </h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+            <div style="background: var(--bg-card); border-radius: 10px; padding: 12px;">
+              <video src="restaurant-media/originals/food-videos/suya_grill_flame_sizzle.mp4" controls playsinline style="width: 100%; height: 200px; border-radius: 8px; object-fit: cover; background: #000;"></video>
+              <div style="margin-top: 10px;">
+                <span class="badge badge-halal">FOOD VIDEO</span>
+                <h4 style="font-size: 14px; font-weight: 700; color: #FFF; margin-top: 6px;">Live Flame Suya Charcoal Grilling</h4>
+                <p style="font-size: 12px; color: var(--text-muted);">Authentic woodsmoke sizzling of tender sirloin beef skewers with spicy yaji rub.</p>
+                <div style="margin-top: 8px; font-size: 11px; color: var(--gold-light); font-family: monospace;">restaurant-media/originals/food-videos/suya_grill_flame_sizzle.mp4</div>
+              </div>
+            </div>
+
+            <div style="background: var(--bg-card); border-radius: 10px; padding: 12px;">
+              <video src="restaurant-media/originals/food-videos/cocktail_lounge_experience.mp4" controls playsinline style="width: 100%; height: 200px; border-radius: 8px; object-fit: cover; background: #000;"></video>
+              <div style="margin-top: 10px;">
+                <span class="badge badge-bestseller">LOUNGE VIDEO</span>
+                <h4 style="font-size: 14px; font-weight: 700; color: #FFF; margin-top: 6px;">Craft Cocktail Pour & Atmosphere</h4>
+                <p style="font-size: 12px; color: var(--text-muted);">Signature 306 Chapman mocktail preparation with aromatic Angostura bitters.</p>
+                <div style="margin-top: 8px; font-size: 11px; color: var(--gold-light); font-family: monospace;">restaurant-media/originals/food-videos/cocktail_lounge_experience.mp4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter and Search Toolbar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 26px;">
+          <div class="categories-wrap" id="mediaFilterContainer">
+            <button class="category-pill active" onclick="filterMediaCategory('All')">All Assets (47)</button>
+            <button class="category-pill" onclick="filterMediaCategory('Food')">🍲 Authentic Dishes</button>
+            <button class="category-pill" onclick="filterMediaCategory('Interior')">🏛️ Interior & Ambience</button>
+            <button class="category-pill" onclick="filterMediaCategory('Promo')">🎉 Promotions & Events</button>
+            <button class="category-pill" onclick="filterMediaCategory('Flyer')">📜 Menu Flyers</button>
+            <button class="category-pill" onclick="filterMediaCategory('Brand')">👑 Brand Identity</button>
+            <button class="category-pill" onclick="filterMediaCategory('Video')">🎬 Videos</button>
+          </div>
+          <div style="position: relative; min-width: 240px;">
+            <input type="text" id="mediaSearchInput" placeholder="Search asset, dish, or file..." class="form-control" style="padding-left: 36px;" oninput="searchMediaAssets()">
+            <span style="position: absolute; left: 12px; top: 10px;">🔍</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Media Grid -->
+        <div id="mediaAssetGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 20px;">
+          <!-- Populated by JS -->
         </div>
       </div>
     </div>
@@ -1869,6 +2040,21 @@
         imageUrl: "images/every_3.jpg",
         cdnUrl: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80"
       },
+      {
+        id: "every_4",
+        name: "Nigerian Peppered Indomie Stir-Fry",
+        description: "Classic Nigerian street-style spicy Indomie stir-fried with diced bell peppers, sweet carrots, fried egg, and grilled chicken.",
+        priceZar: 160.00,
+        category: "Everyday Meals",
+        portion: "Generous Wok Bowl",
+        spice: "Hot 🔥",
+        proteins: ["Fried Egg & Quarter Chicken"],
+        swallows: [],
+        tags: ["HALAL"],
+        prepTime: 12,
+        imageUrl: "images/noodles_special.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+      },
 
       // Sides & Snacks
       {
@@ -1915,6 +2101,36 @@
         prepTime: 10,
         imageUrl: "images/side_3.jpg",
         cdnUrl: "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: "side_4",
+        name: "Kilishi Traditional Sun-Dried Beef",
+        description: "Authentic Hausa-style thinly sliced sun-dried beef seasoned with peanut paste, ginger, garlic, and hot yaji peppers.",
+        priceZar: 95.00,
+        category: "Sides & Snacks",
+        portion: "100g Pack",
+        spice: "Hot Yaji Spice 🔥",
+        proteins: ["Sun-Dried Beef"],
+        swallows: [],
+        tags: ["HALAL"],
+        prepTime: 2,
+        imageUrl: "images/kilishi_beef.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: "side_5",
+        name: "Fresh Agege Bread Loaf with Butter",
+        description: "Ultra-soft, dense, and sweet Lagos-style bakery Agege bread, perfect for dipping into native stews or soups.",
+        priceZar: 35.00,
+        category: "Sides & Snacks",
+        portion: "Whole Loaf",
+        spice: "Mild",
+        proteins: [],
+        swallows: [],
+        tags: ["VEGETARIAN", "HALAL"],
+        prepTime: 2,
+        imageUrl: "images/agege_bread.jpg",
+        cdnUrl: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80"
       },
 
       // Drinks & Lounge
@@ -2452,6 +2668,95 @@
         </tr>
       `).join("");
     }
+
+    // MEDIA INVENTORY DATA (47 Verified Assets)
+    const MEDIA_INVENTORY = [{"asset_id": "ASSET_001", "filename": "306_badge_square.jpg", "category": "Brand Identity", "identified_dish": "306 App Icon & Circular Badge", "media_type": "Image (JPEG)", "dimensions": "1024 x 1024", "file_size_bytes": 566738, "file_size_kb": 553.5, "source_url": "Official 306 Restaurant Brand Icon", "local_original_path": "restaurant-media/originals/logo/306_badge_square.jpg", "local_optimised_path": "restaurant-media/optimised/306_badge_square.jpg", "app_web_path": "/images/306_badge_square.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_002", "filename": "306_logo_master.jpg", "category": "Brand Identity", "identified_dish": "Official 306 Restaurant & Lounge Gold Crest Logo", "media_type": "Image (JPEG)", "dimensions": "1024 x 1024", "file_size_bytes": 566738, "file_size_kb": 553.5, "source_url": "Official 306 Restaurant Branding Asset", "local_original_path": "restaurant-media/originals/logo/306_logo_master.jpg", "local_optimised_path": "restaurant-media/optimised/306_logo_master.jpg", "app_web_path": "/images/306_logo_master.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_003", "filename": "agege_bread.jpg", "category": "Sides & Snacks", "identified_dish": "Fluffy Agege Bread Loaf with Butter", "media_type": "Image (JPEG)", "dimensions": "800 x 532", "file_size_bytes": 159515, "file_size_kb": 155.8, "source_url": "https://images.unsplash.com/photo-1509440159596-0249088772ff", "local_original_path": "restaurant-media/originals/food-photos/agege_bread.jpg", "local_optimised_path": "restaurant-media/optimised/agege_bread.jpg", "app_web_path": "/images/agege_bread.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_004", "filename": "catfish_special.jpg", "category": "Chef Specials", "identified_dish": "XL Whole Grilled Catfish with Pepper Sauce", "media_type": "Image (JPEG)", "dimensions": "800 x 533", "file_size_bytes": 52689, "file_size_kb": 51.5, "source_url": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2", "local_original_path": "restaurant-media/originals/food-photos/catfish_special.jpg", "local_optimised_path": "restaurant-media/optimised/catfish_special.jpg", "app_web_path": "/images/catfish_special.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_005", "filename": "drink_1.jpg", "category": "Drinks & Cocktails", "identified_dish": "Classic 306 Chapman Mocktail with Cucumber & Bitters", "media_type": "Image (JPEG)", "dimensions": "600 x 900", "file_size_bytes": 68658, "file_size_kb": 67.0, "source_url": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd", "local_original_path": "restaurant-media/originals/food-photos/drink_1.jpg", "local_optimised_path": "restaurant-media/optimised/drink_1.jpg", "app_web_path": "/images/drink_1.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_006", "filename": "drink_2.jpg", "category": "Drinks & Cocktails", "identified_dish": "Zobo Hibiscus, Ginger & Pineapple Cooler", "media_type": "Image (JPEG)", "dimensions": "600 x 900", "file_size_bytes": 51622, "file_size_kb": 50.4, "source_url": "https://images.unsplash.com/photo-1556881286-fc6915169721", "local_original_path": "restaurant-media/originals/food-photos/drink_2.jpg", "local_optimised_path": "restaurant-media/optimised/drink_2.jpg", "app_web_path": "/images/drink_2.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_007", "filename": "drink_3.jpg", "category": "Drinks & Cocktails", "identified_dish": "Ice Cold Malta Guinness Malt Drink", "media_type": "Image (JPEG)", "dimensions": "600 x 400", "file_size_bytes": 25505, "file_size_kb": 24.9, "source_url": "https://images.unsplash.com/photo-1608270586620-248524c67de9", "local_original_path": "restaurant-media/originals/food-photos/drink_3.jpg", "local_optimised_path": "restaurant-media/optimised/drink_3.jpg", "app_web_path": "/images/drink_3.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_008", "filename": "drink_4.jpg", "category": "Drinks & Cocktails", "identified_dish": "Fresh Sweet Natural Palm Wine", "media_type": "Image (JPEG)", "dimensions": "600 x 364", "file_size_bytes": 40824, "file_size_kb": 39.9, "source_url": "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2", "local_original_path": "restaurant-media/originals/food-photos/drink_4.jpg", "local_optimised_path": "restaurant-media/optimised/drink_4.jpg", "app_web_path": "/images/drink_4.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_009", "filename": "every_1.jpg", "category": "Everyday Meals", "identified_dish": "Asun Penne Pasta with Peppered Goat Meat", "media_type": "Image (JPEG)", "dimensions": "600 x 900", "file_size_bytes": 109041, "file_size_kb": 106.5, "source_url": "https://images.unsplash.com/photo-1551024709-8f23befc6f87", "local_original_path": "restaurant-media/originals/food-photos/every_1.jpg", "local_optimised_path": "restaurant-media/optimised/every_1.jpg", "app_web_path": "/images/every_1.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_010", "filename": "every_2.jpg", "category": "Everyday Meals", "identified_dish": "Village Spaghetti with Red Palm Oil & Crayfish", "media_type": "Image (JPEG)", "dimensions": "600 x 400", "file_size_bytes": 27082, "file_size_kb": 26.4, "source_url": "https://images.unsplash.com/photo-1556881286-fc6915169721", "local_original_path": "restaurant-media/originals/food-photos/every_2.jpg", "local_optimised_path": "restaurant-media/optimised/every_2.jpg", "app_web_path": "/images/every_2.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_011", "filename": "every_3.jpg", "category": "Everyday Meals", "identified_dish": "Seafood Noodles with Grilled Chicken & Prawns", "media_type": "Image (JPEG)", "dimensions": "600 x 725", "file_size_bytes": 83373, "file_size_kb": 81.4, "source_url": "https://images.unsplash.com/photo-1608270586620-248524c67de9", "local_original_path": "restaurant-media/originals/food-photos/every_3.jpg", "local_optimised_path": "restaurant-media/optimised/every_3.jpg", "app_web_path": "/images/every_3.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_012", "filename": "fallback.jpg", "category": "System Fallback", "identified_dish": "High Quality Nigerian Food Presentation Fallback", "media_type": "Image (JPEG)", "dimensions": "600 x 900", "file_size_bytes": 180926, "file_size_kb": 176.7, "source_url": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1", "local_original_path": "restaurant-media/originals/food-photos/fallback.jpg", "local_optimised_path": "restaurant-media/optimised/fallback.jpg", "app_web_path": "/images/fallback.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_013", "filename": "grill_1.jpg", "category": "Proteins & Grills", "identified_dish": "Traditional Suya Beef Skewers with Yaji Spice", "media_type": "Image (JPEG)", "dimensions": "600 x 900", "file_size_bytes": 180926, "file_size_kb": 176.7, "source_url": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1", "local_original_path": "restaurant-media/originals/food-photos/grill_1.jpg", "local_optimised_path": "restaurant-media/optimised/grill_1.jpg", "app_web_path": "/images/grill_1.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_014", "filename": "grill_2.jpg", "category": "Proteins & Grills", "identified_dish": "Spicy Grilled Asun Goat Meat with Habaneros", "media_type": "Image (JPEG)", "dimensions": "600 x 401", "file_size_bytes": 59613, "file_size_kb": 58.2, "source_url": "https://images.unsplash.com/photo-1544025162-d76694265947", "local_original_path": "restaurant-media/originals/food-photos/grill_2.jpg", "local_optimised_path": "restaurant-media/optimised/grill_2.jpg", "app_web_path": "/images/grill_2.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_015", "filename": "grill_3.jpg", "category": "Proteins & Grills", "identified_dish": "Whole Grilled Croaker Fish & Yam Chips", "media_type": "Image (JPEG)", "dimensions": "600 x 400", "file_size_bytes": 35253, "file_size_kb": 34.4, "source_url": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2", "local_original_path": "restaurant-media/originals/food-photos/grill_3.jpg", "local_optimised_path": "restaurant-media/optimised/grill_3.jpg", "app_web_path": "/images/grill_3.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_016", "filename": "grill_4.jpg", "category": "Proteins & Grills", "identified_dish": "Giant Grilled African Tiger Prawns", "media_type": "Image (JPEG)", "dimensions": "600 x 725", "file_size_bytes": 85149, "file_size_kb": 83.2, "source_url": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47", "local_original_path": "restaurant-media/originals/food-photos/grill_4.jpg", "local_optimised_path": "restaurant-media/optimised/grill_4.jpg", "app_web_path": "/images/grill_4.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_017", "filename": "grill_5.jpg", "category": "Proteins & Grills", "identified_dish": "Charcoal Grilled Quarter Chicken & Golden Chips", "media_type": "Image (JPEG)", "dimensions": "600 x 900", "file_size_bytes": 119643, "file_size_kb": 116.8, "source_url": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f", "local_original_path": "restaurant-media/originals/food-photos/grill_5.jpg", "local_optimised_path": "restaurant-media/optimised/grill_5.jpg", "app_web_path": "/images/grill_5.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_018", "filename": "hero_feast_original.jpg", "category": "Hero Banner", "identified_dish": "Grand Nigerian Feast Table (Jollof, Suya, Plantains)", "media_type": "Image (JPEG)", "dimensions": "1376 x 768", "file_size_bytes": 916339, "file_size_kb": 894.9, "source_url": "Official 306 Feast Photography", "local_original_path": "restaurant-media/originals/food-photos/hero_feast_original.jpg", "local_optimised_path": "restaurant-media/optimised/hero_feast_original.jpg", "app_web_path": "/images/hero_feast_original.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_019", "filename": "kilishi_beef.jpg", "category": "Sides & Snacks", "identified_dish": "Traditional Sun-Dried Kilishi Beef Snack", "media_type": "Image (JPEG)", "dimensions": "800 x 1067", "file_size_bytes": 215443, "file_size_kb": 210.4, "source_url": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd", "local_original_path": "restaurant-media/originals/food-photos/kilishi_beef.jpg", "local_optimised_path": "restaurant-media/optimised/kilishi_beef.jpg", "app_web_path": "/images/kilishi_beef.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_020", "filename": "noodles_special.jpg", "category": "Everyday Meals", "identified_dish": "Nigerian Peppered Indomie Stir-Fry with Chicken", "media_type": "Image (JPEG)", "dimensions": "800 x 800", "file_size_bytes": 165229, "file_size_kb": 161.4, "source_url": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624", "local_original_path": "restaurant-media/originals/food-photos/noodles_special.jpg", "local_optimised_path": "restaurant-media/optimised/noodles_special.jpg", "app_web_path": "/images/noodles_special.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_021", "filename": "peppered_snails.jpg", "category": "Chef Specials", "identified_dish": "Ram Suya & Spicy Peppered Snails", "media_type": "Image (JPEG)", "dimensions": "800 x 534", "file_size_bytes": 92559, "file_size_kb": 90.4, "source_url": "https://images.unsplash.com/photo-1544025162-d76694265947", "local_original_path": "restaurant-media/originals/food-photos/peppered_snails.jpg", "local_optimised_path": "restaurant-media/optimised/peppered_snails.jpg", "app_web_path": "/images/peppered_snails.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_022", "filename": "rice_1.jpg", "category": "Rice Dishes", "identified_dish": "Smoky Nigerian Party Jollof Rice", "media_type": "Image (JPEG)", "dimensions": "600 x 800", "file_size_bytes": 114135, "file_size_kb": 111.5, "source_url": "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f", "local_original_path": "restaurant-media/originals/food-photos/rice_1.jpg", "local_optimised_path": "restaurant-media/optimised/rice_1.jpg", "app_web_path": "/images/rice_1.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_023", "filename": "rice_2.jpg", "category": "Rice Dishes", "identified_dish": "Authentic Nigerian Fried Rice", "media_type": "Image (JPEG)", "dimensions": "600 x 480", "file_size_bytes": 69883, "file_size_kb": 68.2, "source_url": "https://images.unsplash.com/photo-1603133872878-684f208fb84b", "local_original_path": "restaurant-media/originals/food-photos/rice_2.jpg", "local_optimised_path": "restaurant-media/optimised/rice_2.jpg", "app_web_path": "/images/rice_2.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_024", "filename": "rice_3.jpg", "category": "Rice Dishes", "identified_dish": "Ofada Rice & Ayamase Designer Green Stew", "media_type": "Image (JPEG)", "dimensions": "600 x 600", "file_size_bytes": 69993, "file_size_kb": 68.4, "source_url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c", "local_original_path": "restaurant-media/originals/food-photos/rice_3.jpg", "local_optimised_path": "restaurant-media/optimised/rice_3.jpg", "app_web_path": "/images/rice_3.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_025", "filename": "rice_4.jpg", "category": "Rice Dishes", "identified_dish": "White Rice & Rich Native Stew", "media_type": "Image (JPEG)", "dimensions": "600 x 399", "file_size_bytes": 62732, "file_size_kb": 61.3, "source_url": "https://images.unsplash.com/photo-1512058564366-18510be2db19", "local_original_path": "restaurant-media/originals/food-photos/rice_4.jpg", "local_optimised_path": "restaurant-media/optimised/rice_4.jpg", "app_web_path": "/images/rice_4.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_026", "filename": "side_1.jpg", "category": "Sides & Snacks", "identified_dish": "Golden Fried Sweet Plantains (Dodo)", "media_type": "Image (JPEG)", "dimensions": "600 x 365", "file_size_bytes": 57818, "file_size_kb": 56.5, "source_url": "https://images.unsplash.com/photo-1528736235302-52922df5c122", "local_original_path": "restaurant-media/originals/food-photos/side_1.jpg", "local_optimised_path": "restaurant-media/optimised/side_1.jpg", "app_web_path": "/images/side_1.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_027", "filename": "side_2.jpg", "category": "Sides & Snacks", "identified_dish": "Traditional Crispy Nigerian Meat Pie", "media_type": "Image (JPEG)", "dimensions": "600 x 399", "file_size_bytes": 93546, "file_size_kb": 91.4, "source_url": "https://images.unsplash.com/photo-1509722747041-616f39b57569", "local_original_path": "restaurant-media/originals/food-photos/side_2.jpg", "local_optimised_path": "restaurant-media/optimised/side_2.jpg", "app_web_path": "/images/side_2.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_028", "filename": "side_3.jpg", "category": "Sides & Snacks", "identified_dish": "Puff Puff Sweet Golden Doughnut Balls", "media_type": "Image (JPEG)", "dimensions": "600 x 400", "file_size_bytes": 53627, "file_size_kb": 52.4, "source_url": "https://images.unsplash.com/photo-1589302168068-964664d93dc0", "local_original_path": "restaurant-media/originals/food-photos/side_3.jpg", "local_optimised_path": "restaurant-media/optimised/side_3.jpg", "app_web_path": "/images/side_3.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_029", "filename": "soup_1.jpg", "category": "Soups & Swallows", "identified_dish": "Royal Nigerian Egusi Soup with Swallow", "media_type": "Image (JPEG)", "dimensions": "600 x 400", "file_size_bytes": 67385, "file_size_kb": 65.8, "source_url": "https://images.unsplash.com/photo-1547592180-85f173990554", "local_original_path": "restaurant-media/originals/food-photos/soup_1.jpg", "local_optimised_path": "restaurant-media/optimised/soup_1.jpg", "app_web_path": "/images/soup_1.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_030", "filename": "soup_2.jpg", "category": "Soups & Swallows", "identified_dish": "Fresh Seafood Okra Soup (Prawns, Crabs, Fish)", "media_type": "Image (JPEG)", "dimensions": "600 x 907", "file_size_bytes": 179737, "file_size_kb": 175.5, "source_url": "https://images.unsplash.com/photo-1559847844-5315695dadae", "local_original_path": "restaurant-media/originals/food-photos/soup_2.jpg", "local_optimised_path": "restaurant-media/optimised/soup_2.jpg", "app_web_path": "/images/soup_2.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_031", "filename": "soup_3.jpg", "category": "Soups & Swallows", "identified_dish": "Traditional Ogbono & Bitterleaf Soup", "media_type": "Image (JPEG)", "dimensions": "600 x 406", "file_size_bytes": 63816, "file_size_kb": 62.3, "source_url": "https://images.unsplash.com/photo-1540420773420-3366772f4999", "local_original_path": "restaurant-media/originals/food-photos/soup_3.jpg", "local_optimised_path": "restaurant-media/optimised/soup_3.jpg", "app_web_path": "/images/soup_3.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_032", "filename": "soup_4.jpg", "category": "Soups & Swallows", "identified_dish": "Rich Efo Riro Spinach & Locust Bean Stew", "media_type": "Image (JPEG)", "dimensions": "600 x 750", "file_size_bytes": 149474, "file_size_kb": 146.0, "source_url": "https://images.unsplash.com/photo-1543339308-43e59d6b73a6", "local_original_path": "restaurant-media/originals/food-photos/soup_4.jpg", "local_optimised_path": "restaurant-media/optimised/soup_4.jpg", "app_web_path": "/images/soup_4.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_033", "filename": "soup_5.jpg", "category": "Soups & Swallows", "identified_dish": "Authentic Hot Pepper Soup (Goat Meat / Catfish)", "media_type": "Image (JPEG)", "dimensions": "600 x 401", "file_size_bytes": 49013, "file_size_kb": 47.9, "source_url": "https://images.unsplash.com/photo-1541544741938-0af808871cc0", "local_original_path": "restaurant-media/originals/food-photos/soup_5.jpg", "local_optimised_path": "restaurant-media/optimised/soup_5.jpg", "app_web_path": "/images/soup_5.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_034", "filename": "test_img.jpg", "category": "Food Photos", "identified_dish": "test_img.jpg", "media_type": "Image (JPEG)", "dimensions": "600 x 800", "file_size_bytes": 114143, "file_size_kb": 111.5, "source_url": "https://306restaurant.netlify.app/images/test_img.jpg", "local_original_path": "restaurant-media/originals/food-photos/test_img.jpg", "local_optimised_path": "restaurant-media/optimised/test_img.jpg", "app_web_path": "/images/test_img.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_035", "filename": "cocktail_lounge_experience.mp4", "category": "Food Videos", "identified_dish": "Craft Cocktail Pour & Atmosphere Video", "media_type": "Video (MP4)", "dimensions": "1080p (Video Stream, 5-15s)", "file_size_bytes": 1128375, "file_size_kb": 1101.9, "source_url": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4", "local_original_path": "restaurant-media/originals/food-videos/cocktail_lounge_experience.mp4", "local_optimised_path": "restaurant-media/optimised/cocktail_lounge_experience.mp4", "app_web_path": "/images/cocktail_lounge_experience.mp4", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_036", "filename": "suya_grill_flame_sizzle.mp4", "category": "Food Videos", "identified_dish": "Live Flame Charcoal Grilling Sizzle Video", "media_type": "Video (MP4)", "dimensions": "1080p (Video Stream, 5-15s)", "file_size_bytes": 1128375, "file_size_kb": 1101.9, "source_url": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4", "local_original_path": "restaurant-media/originals/food-videos/suya_grill_flame_sizzle.mp4", "local_optimised_path": "restaurant-media/optimised/suya_grill_flame_sizzle.mp4", "app_web_path": "/images/suya_grill_flame_sizzle.mp4", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_037", "filename": "menu_flyer_daily_specials.jpg", "category": "Menu Flyers", "identified_dish": "Daily Chef Specials & Native Delicacies Board", "media_type": "Image (JPEG)", "dimensions": "1000 x 668", "file_size_bytes": 141388, "file_size_kb": 138.1, "source_url": "https://images.unsplash.com/photo-1544025162-d76694265947", "local_original_path": "restaurant-media/originals/menu-flyers/menu_flyer_daily_specials.jpg", "local_optimised_path": "restaurant-media/optimised/menu_flyer_daily_specials.jpg", "app_web_path": "/images/menu_flyer_daily_specials.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_038", "filename": "menu_flyer_grills_platters.jpg", "category": "Menu Flyers", "identified_dish": "Suya, Grills & Seafood Platters Flyer", "media_type": "Image (JPEG)", "dimensions": "1000 x 1500", "file_size_bytes": 459928, "file_size_kb": 449.1, "source_url": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1", "local_original_path": "restaurant-media/originals/menu-flyers/menu_flyer_grills_platters.jpg", "local_optimised_path": "restaurant-media/optimised/menu_flyer_grills_platters.jpg", "app_web_path": "/images/menu_flyer_grills_platters.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_039", "filename": "menu_flyer_swallows_soups.jpg", "category": "Menu Flyers", "identified_dish": "Traditional Swallows & Soups Selection Flyer", "media_type": "Image (JPEG)", "dimensions": "1000 x 667", "file_size_bytes": 186685, "file_size_kb": 182.3, "source_url": "https://images.unsplash.com/photo-1547592180-85f173990554", "local_original_path": "restaurant-media/originals/menu-flyers/menu_flyer_swallows_soups.jpg", "local_optimised_path": "restaurant-media/optimised/menu_flyer_swallows_soups.jpg", "app_web_path": "/images/menu_flyer_swallows_soups.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_040", "filename": "promo_express_lunch_combo.jpg", "category": "Promotions", "identified_dish": "Express Workday Lunch Box Combo Flyer", "media_type": "Image (JPEG)", "dimensions": "1000 x 667", "file_size_bytes": 186685, "file_size_kb": 182.3, "source_url": "https://images.unsplash.com/photo-1547592180-85f173990554", "local_original_path": "restaurant-media/originals/promotions/promo_express_lunch_combo.jpg", "local_optimised_path": "restaurant-media/optimised/promo_express_lunch_combo.jpg", "app_web_path": "/images/promo_express_lunch_combo.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_041", "filename": "promo_happy_hour_cocktails.jpg", "category": "Promotions", "identified_dish": "2-for-1 Signature Chapman & Cocktails Flyer", "media_type": "Image (JPEG)", "dimensions": "1000 x 606", "file_size_bytes": 94009, "file_size_kb": 91.8, "source_url": "https://images.unsplash.com/photo-1551024709-8f23befc6f87", "local_original_path": "restaurant-media/originals/promotions/promo_happy_hour_cocktails.jpg", "local_optimised_path": "restaurant-media/optimised/promo_happy_hour_cocktails.jpg", "app_web_path": "/images/promo_happy_hour_cocktails.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_042", "filename": "promo_sunday_buffet_brunch.jpg", "category": "Promotions", "identified_dish": "Sunday All-You-Can-Eat Nigerian Feast Flyer", "media_type": "Image (JPEG)", "dimensions": "1000 x 667", "file_size_bytes": 232169, "file_size_kb": 226.7, "source_url": "https://images.unsplash.com/photo-1504674900247-0877df9cc836", "local_original_path": "restaurant-media/originals/promotions/promo_sunday_buffet_brunch.jpg", "local_optimised_path": "restaurant-media/optimised/promo_sunday_buffet_brunch.jpg", "app_web_path": "/images/promo_sunday_buffet_brunch.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_043", "filename": "promo_weekend_suya_night.jpg", "category": "Promotions", "identified_dish": "Weekend Suya & Afrobeats Lounge Night Flyer", "media_type": "Image (JPEG)", "dimensions": "1000 x 750", "file_size_bytes": 246779, "file_size_kb": 241.0, "source_url": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5", "local_original_path": "restaurant-media/originals/promotions/promo_weekend_suya_night.jpg", "local_optimised_path": "restaurant-media/optimised/promo_weekend_suya_night.jpg", "app_web_path": "/images/promo_weekend_suya_night.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_044", "filename": "interior_cocktail_bar.jpg", "category": "Restaurant Interior", "identified_dish": "Luxury Bar Counter & Premium Bottles Display", "media_type": "Image (JPEG)", "dimensions": "1200 x 900", "file_size_bytes": 338123, "file_size_kb": 330.2, "source_url": "https://images.unsplash.com/photo-1572116469696-31de0f17cc34", "local_original_path": "restaurant-media/originals/restaurant-interior/interior_cocktail_bar.jpg", "local_optimised_path": "restaurant-media/optimised/interior_cocktail_bar.jpg", "app_web_path": "/images/interior_cocktail_bar.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_045", "filename": "interior_main_lounge.jpg", "category": "Restaurant Interior", "identified_dish": "306 Dining Room & Gold Trim Lounge Tables", "media_type": "Image (JPEG)", "dimensions": "1200 x 800", "file_size_bytes": 262528, "file_size_kb": 256.4, "source_url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4", "local_original_path": "restaurant-media/originals/restaurant-interior/interior_main_lounge.jpg", "local_optimised_path": "restaurant-media/optimised/interior_main_lounge.jpg", "app_web_path": "/images/interior_main_lounge.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_046", "filename": "interior_patio_terrace.jpg", "category": "Restaurant Interior", "identified_dish": "Outdoor Terrace & Social Dining Patio", "media_type": "Image (JPEG)", "dimensions": "1200 x 1600", "file_size_bytes": 495653, "file_size_kb": 484.0, "source_url": "https://images.unsplash.com/photo-1543007630-9710e4a00a20", "local_original_path": "restaurant-media/originals/restaurant-interior/interior_patio_terrace.jpg", "local_optimised_path": "restaurant-media/optimised/interior_patio_terrace.jpg", "app_web_path": "/images/interior_patio_terrace.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}, {"asset_id": "ASSET_047", "filename": "interior_vip_booth.jpg", "category": "Restaurant Interior", "identified_dish": "Private Velvet VIP Lounge Booth", "media_type": "Image (JPEG)", "dimensions": "1200 x 801", "file_size_bytes": 145991, "file_size_kb": 142.6, "source_url": "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c", "local_original_path": "restaurant-media/originals/restaurant-interior/interior_vip_booth.jpg", "local_optimised_path": "restaurant-media/optimised/interior_vip_booth.jpg", "app_web_path": "/images/interior_vip_booth.jpg", "original_preserved": true, "integrated_into_app": true, "access_or_processing_issue": "None - Validated & Accessible"}];
+
+    let currentMediaCategory = 'All';
+
+    function renderMediaLibrary() {
+      const grid = document.getElementById('mediaAssetGrid');
+      if (!grid) return;
+
+      const searchTerm = (document.getElementById('mediaSearchInput')?.value || '').toLowerCase().trim();
+
+      const filtered = MEDIA_INVENTORY.filter(item => {
+        const matchesSearch = !searchTerm ||
+          item.filename.toLowerCase().includes(searchTerm) ||
+          item.identified_dish.toLowerCase().includes(searchTerm) ||
+          item.category.toLowerCase().includes(searchTerm) ||
+          item.asset_id.toLowerCase().includes(searchTerm);
+
+        let matchesCat = true;
+        if (currentMediaCategory === 'Food') {
+          matchesCat = ['Rice Dishes', 'Soups & Swallows', 'Proteins & Grills', 'Chef Specials', 'Everyday Meals', 'Sides & Snacks', 'Drinks & Cocktails', 'Food Photos'].includes(item.category);
+        } else if (currentMediaCategory === 'Interior') {
+          matchesCat = item.category === 'Restaurant Interior';
+        } else if (currentMediaCategory === 'Promo') {
+          matchesCat = item.category === 'Promotions';
+        } else if (currentMediaCategory === 'Flyer') {
+          matchesCat = item.category === 'Menu Flyers';
+        } else if (currentMediaCategory === 'Brand') {
+          matchesCat = ['Brand Identity', 'Hero Banner'].includes(item.category);
+        } else if (currentMediaCategory === 'Video') {
+          matchesCat = item.category === 'Food Videos';
+        }
+
+        return matchesSearch && matchesCat;
+      });
+
+      grid.innerHTML = filtered.map(asset => `
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 160px; background: #000; position: relative; overflow: hidden;">
+            ${asset.media_type.includes('Video') ?
+              `<video src="${asset.local_original_path}" style="width: 100%; height: 100%; object-fit: cover;"></video>` :
+              `<img src="${asset.local_optimised_path}" alt="${asset.identified_dish}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='${asset.app_web_path}'">`
+            }
+            <span class="badge badge-bestseller" style="position: absolute; top: 10px; left: 10px; font-size: 10px;">${asset.asset_id}</span>
+            <span class="badge badge-halal" style="position: absolute; top: 10px; right: 10px; font-size: 10px;">${asset.dimensions}</span>
+          </div>
+
+          <div style="padding: 14px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 10px; font-weight: 800; color: var(--gold-light); text-transform: uppercase;">${asset.category}</div>
+              <h4 style="font-size: 14px; font-weight: 700; color: #FFF; margin-top: 4px;">${asset.identified_dish}</h4>
+              <div style="font-size: 11px; color: var(--text-muted); font-family: monospace; margin-top: 4px; word-break: break-all;">${asset.filename} (${asset.file_size_kb} KB)</div>
+            </div>
+
+            <div style="margin-top: 12px; display: flex; gap: 6px; font-size: 11px;">
+              <a href="${asset.local_original_path}" target="_blank" class="btn-secondary" style="padding: 4px 8px; flex: 1; text-align: center;">Original</a>
+              <button class="btn-wa" style="padding: 4px 8px;" onclick="navigator.clipboard.writeText('${asset.local_original_path}'); alert('Copied path: ${asset.local_original_path}')">Copy Path</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterMediaCategory(cat) {
+      currentMediaCategory = cat;
+      document.querySelectorAll('#mediaFilterContainer .category-pill').forEach(btn => {
+        if (btn.innerText.includes(cat) || (cat === 'All' && btn.innerText.includes('All'))) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      renderMediaLibrary();
+    }
+
+    function searchMediaAssets() {
+      renderMediaLibrary();
+    }
+
+    // Call renderMediaLibrary when switching to media tab
+    const origSwitchTab = switchTab;
+    switchTab = function(tabId) {
+      origSwitchTab(tabId);
+      if (tabId === 'media') {
+        renderMediaLibrary();
+      }
+    };
+
   </script>
 </body>
 </html>

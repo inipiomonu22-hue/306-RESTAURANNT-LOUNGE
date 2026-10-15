@@ -64,6 +64,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.example.R
 import com.example.data.model.MenuItemEntity
 import com.example.ui.MainViewModel
@@ -99,6 +100,7 @@ fun HomeScreen(
 
     val categories = listOf(
         "All",
+        "Chef Specials",
         "Rice Dishes",
         "Soups & Swallows",
         "Proteins & Grills",
@@ -170,9 +172,11 @@ fun HomeScreen(
                                     )
                                     Spacer(modifier = Modifier.width(4.dp))
                                     Text(
-                                        text = "306 Long St, Cape Town City Centre",
-                                        fontSize = 12.sp,
-                                        color = Color.LightGray
+                                        text = settings?.physicalAddress ?: "Eclipse Park, Village Walk, Parklands, Cape Town",
+                                        fontSize = 11.sp,
+                                        color = Color.LightGray,
+                                        maxLines = 1,
+                                        overflow = TextOverflow.Ellipsis
                                     )
                                 }
                             }
@@ -691,6 +695,150 @@ fun HomeScreen(
                 }
             }
 
+            // Promotions & Events Carousel
+            item {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 14.dp, bottom = 4.dp)
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = if (isWide) 20.dp else 16.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "Promotions & Lounge Events",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                        Text(
+                            text = "Special Offers",
+                            fontSize = 12.sp,
+                            color = GoldPrimary
+                        )
+                    }
+
+                    val promoEvents = listOf(
+                        Triple("Weekend Suya & Afrobeats Night", "Live DJ, spicy suya platters & cocktails every Friday & Saturday", "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80"),
+                        Triple("Sunday Nigerian Feast Buffet", "All-you-can-enjoy Jollof, Egusi, Fried Rice & native delicacies", "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"),
+                        Triple("2-for-1 Chapman Happy Hour", "Iconic Chapman mocktails & cocktails from 4:00 PM to 7:00 PM daily", "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"),
+                        Triple("Express Workday Lunch Box", "Jollof rice + choice of protein + dodo delivered in 25 mins", "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80")
+                    )
+
+                    LazyRow(
+                        contentPadding = PaddingValues(horizontal = if (isWide) 20.dp else 16.dp, vertical = 8.dp),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        items(promoEvents) { (title, subtitle, imgUrl) ->
+                            Card(
+                                modifier = Modifier
+                                    .width(260.dp)
+                                    .clickable { onNavigateToMenu() },
+                                colors = CardDefaults.cardColors(containerColor = ObsidianSurface),
+                                shape = RoundedCornerShape(14.dp),
+                                border = androidx.compose.foundation.BorderStroke(1.dp, GoldPrimary.copy(alpha = 0.35f))
+                            ) {
+                                Column {
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(110.dp)
+                                            .background(ObsidianElevated)
+                                    ) {
+                                        AsyncImage(
+                                            model = imgUrl,
+                                            contentDescription = title,
+                                            modifier = Modifier.fillMaxSize(),
+                                            contentScale = ContentScale.Crop
+                                        )
+                                    }
+                                    Column(modifier = Modifier.padding(12.dp)) {
+                                        Text(title, fontWeight = FontWeight.Bold, color = GoldPrimary, fontSize = 13.sp)
+                                        Spacer(modifier = Modifier.height(2.dp))
+                                        Text(subtitle, color = Color.LightGray, fontSize = 11.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 306 Ambience & Lounge Experience Gallery
+            item {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp, bottom = 4.dp)
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = if (isWide) 20.dp else 16.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "306 Ambience & Dining Lounge",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                        Text(
+                            text = "Visit Us",
+                            fontSize = 12.sp,
+                            color = ForestHerbs
+                        )
+                    }
+
+                    val ambienceSpots = listOf(
+                        Pair("Main Dining Hall & Gold Lounge", "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80"),
+                        Pair("Cocktail Bar & Bottle Service", "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=600&q=80"),
+                        Pair("Private VIP Velvet Booths", "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80"),
+                        Pair("Outdoor Terrace Patio Dining", "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80")
+                    )
+
+                    LazyRow(
+                        contentPadding = PaddingValues(horizontal = if (isWide) 20.dp else 16.dp, vertical = 8.dp),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        items(ambienceSpots) { (name, imgUrl) ->
+                            Card(
+                                modifier = Modifier
+                                    .width(220.dp)
+                                    .clickable { onNavigateToReservations() },
+                                colors = CardDefaults.cardColors(containerColor = ObsidianSurface),
+                                shape = RoundedCornerShape(14.dp),
+                                border = androidx.compose.foundation.BorderStroke(1.dp, ObsidianBorder)
+                            ) {
+                                Column {
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(115.dp)
+                                            .background(ObsidianElevated)
+                                    ) {
+                                        AsyncImage(
+                                            model = imgUrl,
+                                            contentDescription = name,
+                                            modifier = Modifier.fillMaxSize(),
+                                            contentScale = ContentScale.Crop
+                                        )
+                                    }
+                                    Column(modifier = Modifier.padding(10.dp)) {
+                                        Text(name, fontWeight = FontWeight.SemiBold, color = Color.White, fontSize = 12.sp)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             // Featured Dishes List Header
             item {
                 Row(
@@ -731,6 +879,21 @@ fun HomeScreen(
                             shape = RoundedCornerShape(14.dp),
                             border = androidx.compose.foundation.BorderStroke(1.dp, ObsidianBorder)
                         ) {
+                            if (dish.imageUrl.isNotBlank()) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(130.dp)
+                                        .background(ObsidianElevated)
+                                ) {
+                                    AsyncImage(
+                                        model = dish.imageUrl,
+                                        contentDescription = dish.name,
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+                                }
+                            }
                             Column(modifier = Modifier.padding(14.dp)) {
                                 Row(
                                     modifier = Modifier.fillMaxWidth(),

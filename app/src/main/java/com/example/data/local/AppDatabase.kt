@@ -344,6 +344,71 @@ abstract class AppDatabase : RoomDatabase() {
                     preparationTimeMins = 10,
                     imageUrl = "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80"
                 ),
+                MenuItemEntity(
+                    id = "side_4",
+                    name = "Kilishi Traditional Sun-Dried Beef",
+                    description = "Authentic Hausa-style thinly sliced sun-dried beef seasoned with peanut paste, ginger, garlic, and hot yaji peppers.",
+                    priceZar = 95.00,
+                    category = "Sides & Snacks",
+                    portionDescription = "100g Pack",
+                    dietaryTags = "HALAL",
+                    preparationTimeMins = 2,
+                    imageUrl = "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80"
+                ),
+                MenuItemEntity(
+                    id = "side_5",
+                    name = "Fresh Agege Bread Loaf with Butter",
+                    description = "Ultra-soft, dense, and sweet Lagos-style bakery Agege bread, perfect for dipping into native stews or soups.",
+                    priceZar = 35.00,
+                    category = "Sides & Snacks",
+                    portionDescription = "Whole Loaf",
+                    dietaryTags = "VEGETARIAN,HALAL",
+                    preparationTimeMins = 2,
+                    imageUrl = "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80"
+                ),
+                // Chef Specials
+                MenuItemEntity(
+                    id = "spec_1",
+                    name = "XL Whole Grilled Catfish (Point & Kill)",
+                    description = "Signature Cape Town Nigerian whole grilled catfish seasoned with aromatic local herbs, served with spicy pepper sauce & plantain chips.",
+                    priceZar = 220.00,
+                    category = "Chef Specials",
+                    portionDescription = "Whole Large Catfish with Chips",
+                    spiceLevel = "Hot Native Spiced",
+                    availableProteins = "Fresh Whole Catfish",
+                    dietaryTags = "HALAL,CHEF_SPECIAL",
+                    preparationTimeMins = 35,
+                    isChefRecommended = true,
+                    isDailySpecial = true,
+                    imageUrl = "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80"
+                ),
+                MenuItemEntity(
+                    id = "spec_2",
+                    name = "Ram Suya & Spicy Peppered Snails",
+                    description = "Tender jumbo African land snails and ram suya bites slow-simmered in rich red pepper glaze with sliced red onions.",
+                    priceZar = 220.00,
+                    category = "Chef Specials",
+                    portionDescription = "Gourmet Platter",
+                    spiceLevel = "Extra Hot",
+                    availableProteins = "Giant Land Snails & Ram Suya",
+                    dietaryTags = "HALAL,CHEF_SPECIAL",
+                    preparationTimeMins = 25,
+                    isChefRecommended = true,
+                    imageUrl = "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+                ),
+                MenuItemEntity(
+                    id = "every_4",
+                    name = "Nigerian Peppered Indomie Stir-Fry",
+                    description = "Classic Nigerian street-style spicy Indomie stir-fried with diced bell peppers, sweet carrots, fried egg, and grilled chicken.",
+                    priceZar = 160.00,
+                    category = "Everyday Meals",
+                    portionDescription = "Generous Wok Bowl",
+                    spiceLevel = "Hot",
+                    availableProteins = "Fried Egg & Quarter Chicken",
+                    dietaryTags = "HALAL",
+                    preparationTimeMins = 12,
+                    imageUrl = "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+                ),
                 // Drinks & Lounge
                 MenuItemEntity(
                     id = "drink_1",
@@ -395,13 +460,14 @@ abstract class AppDatabase : RoomDatabase() {
 
             // Seed Delivery Zones in Cape Town
             val initialZones = listOf(
-                DeliveryZoneEntity("City Bowl & Cape Town CBD", "8001", 35.00, 150.00, 30),
-                DeliveryZoneEntity("Foreshore & V&A Waterfront", "8002", 40.00, 150.00, 35),
-                DeliveryZoneEntity("Green Point & Sea Point", "8005", 45.00, 180.00, 40),
-                DeliveryZoneEntity("Woodstock, Salt River & Observatory", "7925", 50.00, 200.00, 45),
-                DeliveryZoneEntity("Camps Bay, Clifton & Bantry Bay", "8005", 65.00, 250.00, 50),
-                DeliveryZoneEntity("Southern Suburbs (Claremont / Rondebosch)", "7700", 75.00, 250.00, 55),
-                DeliveryZoneEntity("Century City, Milnerton & Blouberg", "7441", 85.00, 300.00, 60)
+                DeliveryZoneEntity("Parklands, Table View & Blouberg", "7441", 30.00, 150.00, 25),
+                DeliveryZoneEntity("Century City & Milnerton", "7441", 45.00, 180.00, 35),
+                DeliveryZoneEntity("City Bowl & Cape Town CBD", "8001", 55.00, 200.00, 40),
+                DeliveryZoneEntity("Foreshore & V&A Waterfront", "8002", 55.00, 200.00, 40),
+                DeliveryZoneEntity("Green Point & Sea Point", "8005", 60.00, 220.00, 45),
+                DeliveryZoneEntity("Woodstock & Observatory", "7925", 60.00, 220.00, 45),
+                DeliveryZoneEntity("Southern Suburbs (Claremont / Rondebosch)", "7700", 75.00, 250.00, 50),
+                DeliveryZoneEntity("Bellville & Northern Suburbs", "7530", 75.00, 250.00, 50)
             )
             database.deliveryDao().insertZones(initialZones)
 
@@ -438,15 +504,15 @@ abstract class AppDatabase : RoomDatabase() {
             val initialSpecials = listOf(
                 DailySpecialEntity(
                     id = "spec_1",
-                    title = "Weekend Jollof & Asun Combo",
-                    description = "Smoky Jollof Rice + Spicy Roasted Asun Goat Meat + Fried Dodo + Chapman Mocktail",
-                    priceZar = 295.00,
-                    bannerText = "CHEF'S WEEKEND SPECIAL"
+                    title = "XL Grilled Catfish & Plantains",
+                    description = "Whole Fresh Grilled Catfish + Pepper Sauce + Fried Sweet Dodo + Chapman Mocktail",
+                    priceZar = 265.00,
+                    bannerText = "CHEF'S SIGNATURE SPECIAL"
                 ),
                 DailySpecialEntity(
                     id = "spec_2",
                     title = "Royal Seafood Okra Feast",
-                    description = "Seafood Okra Soup with Tiger Prawns & Crab + 2 Pounded Yam swallows",
+                    description = "Seafood Okra Soup with Tiger Prawns, Crab & Fish + 2 Pounded Yam swallows",
                     priceZar = 280.00,
                     bannerText = "CAPETOWN SEAFOOD SPECIAL"
                 )
@@ -457,8 +523,8 @@ abstract class AppDatabase : RoomDatabase() {
             val initialSettings = RestaurantSettingsEntity(
                 id = 1,
                 restaurantName = "306 Restaurant & Lounge",
-                physicalAddress = "306 Long Street, Cape Town City Centre, 8001",
-                officialPhone = "+27 21 306 3060",
+                physicalAddress = "Unit 2, Eclipse Park, Cnr Village Walk & Parklands Main Rd, Parklands, Cape Town 7441",
+                officialPhone = "+27 68 336 8458",
                 officialWhatsApp = "+27 71 306 3060",
                 openingHours = "Mon - Sun: 12:00 PM - 11:30 PM",
                 freeDeliveryThresholdZar = 550.00,

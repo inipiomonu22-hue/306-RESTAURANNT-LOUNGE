@@ -80,6 +80,7 @@ fun MenuScreen(
 
     val categories = listOf(
         "All",
+        "Chef Specials",
         "Rice Dishes",
         "Soups & Swallows",
         "Proteins & Grills",

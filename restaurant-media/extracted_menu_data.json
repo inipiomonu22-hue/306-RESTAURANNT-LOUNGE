@@ -1,0 +1,638 @@
+{
+  "restaurant_name": "306 Restaurant & Lounge",
+  "verified_address": "Unit 2, Eclipse Park, Cnr Village Walk & Parklands Main Rd, Parklands, Cape Town 7441",
+  "contact_phone_orders": "+27 68 336 8458 / +27 83 719 1341",
+  "contact_whatsapp": "+27 71 306 3060",
+  "currency": "ZAR (R)",
+  "extraction_date": "2026-10-15",
+  "sources": [
+    "Official 306 Restaurant Website (https://306restaurant.netlify.app)",
+    "306 Restaurant & Lounge Official Instagram (@306restaurantnlounge)",
+    "Uber Eats Cape Town Official Listing (4.7 Stars)",
+    "Original Restaurant Menu Flyers & Chalkboard Daily Specials"
+  ],
+  "categories": [
+    "Rice Dishes",
+    "Soups & Swallows",
+    "Proteins & Grills",
+    "Chef Specials",
+    "Everyday Meals",
+    "Sides & Snacks",
+    "Drinks & Cocktails"
+  ],
+  "items": [
+    {
+      "id": "rice_1",
+      "name": "Smoky Nigerian Party Jollof Rice",
+      "category": "Rice Dishes",
+      "price_zar": 145.0,
+      "portion": "Generous 1-Person Serving with Fried Dodo",
+      "spice_level": "Medium Hot",
+      "protein_options": [
+        "Grilled Chicken",
+        "Fried Beef",
+        "Goat Meat",
+        "Fried Croaker Fish"
+      ],
+      "dietary": [
+        "Halal",
+        "Bestseller"
+      ],
+      "prep_time_mins": 20,
+      "image_filename": "rice_1.jpg",
+      "image_path": "/images/rice_1.jpg",
+      "flag_for_review": null,
+      "description": "Cape Town finest woodsmoke party Jollof rice simmered in slow-roasted bell peppers, plum tomatoes, and Nigerian thyme."
+    },
+    {
+      "id": "rice_2",
+      "name": "Authentic Nigerian Fried Rice",
+      "category": "Rice Dishes",
+      "price_zar": 155.0,
+      "portion": "1-Person Serving with Salad & Plantains",
+      "spice_level": "Mild",
+      "protein_options": [
+        "Grilled Turkey",
+        "Fried Chicken",
+        "Peppered Beef"
+      ],
+      "dietary": [
+        "Halal"
+      ],
+      "prep_time_mins": 20,
+      "image_filename": "rice_2.jpg",
+      "image_path": "/images/rice_2.jpg",
+      "flag_for_review": null,
+      "description": "Fragrant long-grain rice wok-tossed with fresh sweetcorn, green peas, carrots, liver morsels, and rich chicken broth."
+    },
+    {
+      "id": "rice_3",
+      "name": "Ofada Rice & Ayamase Designer Stew",
+      "category": "Rice Dishes",
+      "price_zar": 185.0,
+      "portion": "Traditional Green Leaf Wrap Serving",
+      "spice_level": "Extra Hot",
+      "protein_options": [
+        "Assorted Offal & Beef (Shaki/Towel)",
+        "Boiled Egg",
+        "Fried Fish"
+      ],
+      "dietary": [
+        "Halal",
+        "Chef Special"
+      ],
+      "prep_time_mins": 25,
+      "image_filename": "rice_3.jpg",
+      "image_path": "/images/rice_3.jpg",
+      "flag_for_review": null,
+      "description": "Traditional unpolished aromatic Ofada rice paired with green habanero palm oil designer sauce, boiled egg, and locust beans (iru)."
+    },
+    {
+      "id": "rice_4",
+      "name": "White Rice & Rich Native Stew",
+      "category": "Rice Dishes",
+      "price_zar": 135.0,
+      "portion": "Standard Plate Serving",
+      "spice_level": "Medium",
+      "protein_options": [
+        "Beef",
+        "Chicken",
+        "Fried Fish"
+      ],
+      "dietary": [
+        "Halal"
+      ],
+      "prep_time_mins": 15,
+      "image_filename": "rice_4.jpg",
+      "image_path": "/images/rice_4.jpg",
+      "flag_for_review": null,
+      "description": "Fluffy steamed long-grain rice served with traditional Nigerian pepper and tomato reduction stew."
+    },
+    {
+      "id": "soup_1",
+      "name": "Royal Nigerian Egusi Soup",
+      "category": "Soups & Swallows",
+      "price_zar": 195.0,
+      "portion": "Deep Bowl with 1 Choice of Swallow",
+      "spice_level": "Medium",
+      "protein_options": [
+        "Goat Meat",
+        "Tender Beef",
+        "Assorted (Shaki/Kpomo)",
+        "Smoked Catfish"
+      ],
+      "swallow_options": [
+        "Pounded Yam",
+        "Eba (Garri)",
+        "Semovita",
+        "Amala"
+      ],
+      "dietary": [
+        "Halal",
+        "Signature Dish"
+      ],
+      "prep_time_mins": 25,
+      "image_filename": "soup_1.jpg",
+      "image_path": "/images/soup_1.jpg",
+      "flag_for_review": null,
+      "description": "Rich ground melon seed soup enriched with flaked stockfish, smoked catfish, crayfish, and tender bitterleaf/spinach."
+    },
+    {
+      "id": "soup_2",
+      "name": "Fresh Seafood Okra Soup",
+      "category": "Soups & Swallows",
+      "price_zar": 245.0,
+      "portion": "Large Seafood Bowl with Swallow",
+      "spice_level": "Medium Hot",
+      "protein_options": [
+        "Jumbo Prawns",
+        "Blue Crab",
+        "Fresh King Fish",
+        "Calamari Rings"
+      ],
+      "swallow_options": [
+        "Pounded Yam",
+        "Eba (Garri)",
+        "Semovita",
+        "Amala"
+      ],
+      "dietary": [
+        "Halal",
+        "Seafood Delight"
+      ],
+      "prep_time_mins": 30,
+      "image_filename": "soup_2.jpg",
+      "image_path": "/images/soup_2.jpg",
+      "flag_for_review": "Market seafood availability may vary seasonally",
+      "description": "Freshly diced tender okra simmered in aromatic seafood broth loaded with jumbo tiger prawns, crab claws, calamari, and fish."
+    },
+    {
+      "id": "soup_3",
+      "name": "Traditional Ogbono & Bitterleaf Soup",
+      "category": "Soups & Swallows",
+      "price_zar": 190.0,
+      "portion": "Deep Bowl with 1 Choice of Swallow",
+      "spice_level": "Medium",
+      "protein_options": [
+        "Assorted Beef & Tripe",
+        "Smoked Fish",
+        "Goat Meat"
+      ],
+      "swallow_options": [
+        "Pounded Yam",
+        "Eba (Garri)",
+        "Semovita",
+        "Amala"
+      ],
+      "dietary": [
+        "Halal"
+      ],
+      "prep_time_mins": 20,
+      "image_filename": "soup_3.jpg",
+      "image_path": "/images/soup_3.jpg",
+      "flag_for_review": null,
+      "description": "Smooth draw soup crafted from wild African mango seeds (ogbono) simmered with dried catfish and scent leaf."
+    },
+    {
+      "id": "soup_4",
+      "name": "Rich Efo Riro Spinach & Locust Bean Stew",
+      "category": "Soups & Swallows",
+      "price_zar": 185.0,
+      "portion": "Bowl with 1 Swallow Choice",
+      "spice_level": "Hot",
+      "protein_options": [
+        "Diced Cow Leg",
+        "Tripe (Shaki)",
+        "Fried Fish",
+        "Goat Meat"
+      ],
+      "swallow_options": [
+        "Pounded Yam",
+        "Eba (Garri)",
+        "Semovita",
+        "Amala"
+      ],
+      "dietary": [
+        "Halal",
+        "Chef Special"
+      ],
+      "prep_time_mins": 25,
+      "image_filename": "soup_4.jpg",
+      "image_path": "/images/soup_4.jpg",
+      "flag_for_review": null,
+      "description": "Yoruba-style rich braised spinach stew with coarse peppers, smoked panla fish, ponmo, and aromatic locust beans (iru)."
+    },
+    {
+      "id": "soup_5",
+      "name": "Authentic Hot Pepper Soup",
+      "category": "Soups & Swallows",
+      "price_zar": 165.0,
+      "portion": "Piping Hot Bowl with Fresh Herbs",
+      "spice_level": "Extra Hot (Very Spicy)",
+      "protein_options": [
+        "Fresh Catfish (Point & Kill)",
+        "Goat Meat",
+        "Chicken"
+      ],
+      "swallow_options": [
+        "None / Bread on request"
+      ],
+      "dietary": [
+        "Halal",
+        "Gluten Free"
+      ],
+      "prep_time_mins": 20,
+      "image_filename": "soup_5.jpg",
+      "image_path": "/images/soup_5.jpg",
+      "flag_for_review": null,
+      "description": "Traditional clear broth infused with uda seeds, alligator pepper, calabash nutmeg, and fresh scent leaves."
+    },
+    {
+      "id": "grill_1",
+      "name": "Traditional Suya Beef Skewers",
+      "category": "Proteins & Grills",
+      "price_zar": 135.0,
+      "portion": "4 Generous Skewers with Sliced Red Onions",
+      "spice_level": "Hot Yaji Spice",
+      "protein_options": [
+        "Thinly Sliced Tender Sirloin Beef"
+      ],
+      "dietary": [
+        "Halal",
+        "Bestseller"
+      ],
+      "prep_time_mins": 15,
+      "image_filename": "grill_1.jpg",
+      "image_path": "/images/grill_1.jpg",
+      "flag_for_review": null,
+      "description": "Thinly sliced prime beef marinated in roasted kuli-kuli peanut powder, ginger, garlic, and fiery Cameroonian chili pepper."
+    },
+    {
+      "id": "grill_2",
+      "name": "Spicy Grilled Asun Goat Meat",
+      "category": "Proteins & Grills",
+      "price_zar": 160.0,
+      "portion": "Generous Bowl of Peppered Goat Chunks",
+      "spice_level": "Very Hot",
+      "protein_options": [
+        "Smoked Goat Meat Chunks"
+      ],
+      "dietary": [
+        "Halal",
+        "Lounge Favorite"
+      ],
+      "prep_time_mins": 20,
+      "image_filename": "grill_2.jpg",
+      "image_path": "/images/grill_2.jpg",
+      "flag_for_review": null,
+      "description": "Flame-charred bite-sized goat meat tossed in crushed Scotch bonnet habaneros, sweet red onions, and bell peppers."
+    },
+    {
+      "id": "grill_3",
+      "name": "Whole Grilled Croaker Fish & Yam Chips",
+      "category": "Proteins & Grills",
+      "price_zar": 210.0,
+      "portion": "Whole Fish with Yam Chips & Coleslaw",
+      "spice_level": "Medium Hot",
+      "protein_options": [
+        "Whole Fresh Atlantic Croaker Fish"
+      ],
+      "dietary": [
+        "Halal",
+        "Seafood"
+      ],
+      "prep_time_mins": 30,
+      "image_filename": "grill_3.jpg",
+      "image_path": "/images/grill_3.jpg",
+      "flag_for_review": null,
+      "description": "Whole fresh fish scored and marinated in native suya spices, grilled to crispy skin perfection with fried yam wedges."
+    },
+    {
+      "id": "grill_4",
+      "name": "Giant Grilled African Tiger Prawns",
+      "category": "Proteins & Grills",
+      "price_zar": 235.0,
+      "portion": "6 Jumbo Charcoal Grilled Prawns",
+      "spice_level": "Garlic Chili Butter",
+      "protein_options": [
+        "Jumbo Tiger Prawns"
+      ],
+      "dietary": [
+        "Halal",
+        "Seafood"
+      ],
+      "prep_time_mins": 20,
+      "image_filename": "grill_4.jpg",
+      "image_path": "/images/grill_4.jpg",
+      "flag_for_review": null,
+      "description": "Plump ocean tiger prawns butterflied and brushed with garlic chili butter and Nigerian dry seasoning over open coals."
+    },
+    {
+      "id": "grill_5",
+      "name": "Charcoal Grilled Quarter Chicken & Chips",
+      "category": "Proteins & Grills",
+      "price_zar": 120.0,
+      "portion": "Quarter Chicken Leg with Golden Chips",
+      "spice_level": "Mild or Hot Suya Rub",
+      "protein_options": [
+        "Quarter Chicken"
+      ],
+      "dietary": [
+        "Halal"
+      ],
+      "prep_time_mins": 20,
+      "image_filename": "grill_5.jpg",
+      "image_path": "/images/grill_5.jpg",
+      "flag_for_review": null,
+      "description": "Juicy quarter chicken marinated in Nigerian curry, thyme, ginger, and garlic, char-grilled over acacia wood coals."
+    },
+    {
+      "id": "spec_1",
+      "name": "XL Whole Grilled Catfish (Point & Kill)",
+      "category": "Chef Specials",
+      "price_zar": 220.0,
+      "portion": "Extra Large Whole Catfish with Native Chili Sauce",
+      "spice_level": "Hot Native Spiced",
+      "protein_options": [
+        "Fresh Whole Catfish"
+      ],
+      "dietary": [
+        "Halal",
+        "Signature Special"
+      ],
+      "prep_time_mins": 35,
+      "image_filename": "catfish_special.jpg",
+      "image_path": "/images/catfish_special.jpg",
+      "flag_for_review": "Fresh catch size may vary between 800g and 1.1kg",
+      "description": "Signature Cape Town Nigerian whole grilled catfish seasoned with aromatic local herbs, served with fried plantains."
+    },
+    {
+      "id": "spec_2",
+      "name": "Ram Suya & Spicy Peppered Snails",
+      "category": "Chef Specials",
+      "price_zar": 220.0,
+      "portion": "Platter with Giant Snails & Ram Suya",
+      "spice_level": "Extra Hot",
+      "protein_options": [
+        "Giant African Land Snails & Ram Meat"
+      ],
+      "dietary": [
+        "Halal",
+        "Delicacy"
+      ],
+      "prep_time_mins": 25,
+      "image_filename": "peppered_snails.jpg",
+      "image_path": "/images/peppered_snails.jpg",
+      "flag_for_review": null,
+      "description": "Tender jumbo African snails and ram suya bites slow-simmered in rich red pepper glaze with sliced onions."
+    },
+    {
+      "id": "every_1",
+      "name": "Asun Penne Pasta",
+      "category": "Everyday Meals",
+      "price_zar": 165.0,
+      "portion": "Generous Pasta Bowl",
+      "spice_level": "Hot",
+      "protein_options": [
+        "Peppered Goat Meat (Asun)"
+      ],
+      "dietary": [
+        "Halal",
+        "306 Signature Fusion"
+      ],
+      "prep_time_mins": 18,
+      "image_filename": "every_1.jpg",
+      "image_path": "/images/every_1.jpg",
+      "flag_for_review": null,
+      "description": "Al dente penne pasta wok-tossed in traditional Nigerian peppered goat meat jus with sweet tri-color peppers."
+    },
+    {
+      "id": "every_2",
+      "name": "Village Spaghetti with Red Palm Oil",
+      "category": "Everyday Meals",
+      "price_zar": 145.0,
+      "portion": "Traditional Village Plate",
+      "spice_level": "Medium Hot",
+      "protein_options": [
+        "Dried Catfish",
+        "Ground Crayfish",
+        "Fried Beef Chunks"
+      ],
+      "dietary": [
+        "Halal"
+      ],
+      "prep_time_mins": 18,
+      "image_filename": "every_2.jpg",
+      "image_path": "/images/every_2.jpg",
+      "flag_for_review": null,
+      "description": "Authentic native Nigerian spaghetti cooked with virgin unbleached palm oil, scent leaves, dried fish flakes, and crayfish."
+    },
+    {
+      "id": "every_3",
+      "name": "Seafood Noodles with Grilled Chicken",
+      "category": "Everyday Meals",
+      "price_zar": 185.0,
+      "portion": "Jumbo Stir-Fry Bowl",
+      "spice_level": "Mild or Spicy",
+      "protein_options": [
+        "Prawns",
+        "Calamari",
+        "Grilled Chicken Strips"
+      ],
+      "dietary": [
+        "Halal"
+      ],
+      "prep_time_mins": 15,
+      "image_filename": "every_3.jpg",
+      "image_path": "/images/every_3.jpg",
+      "flag_for_review": null,
+      "description": "Savory noodles wok-fried with baby prawns, tender calamari, grilled chicken breast, julienned peppers, and sesame."
+    },
+    {
+      "id": "every_4",
+      "name": "Nigerian Peppered Indomie Stir-Fry",
+      "category": "Everyday Meals",
+      "price_zar": 160.0,
+      "portion": "Standard Wok Bowl with Fried Egg & Chicken",
+      "spice_level": "Hot",
+      "protein_options": [
+        "Fried Egg & Quarter Grilled Chicken"
+      ],
+      "dietary": [
+        "Halal"
+      ],
+      "prep_time_mins": 12,
+      "image_filename": "noodles_special.jpg",
+      "image_path": "/images/noodles_special.jpg",
+      "flag_for_review": null,
+      "description": "Classic Nigerian street-style spicy Indomie stir-fried with diced bell peppers, sweet carrots, fried egg, and chicken."
+    },
+    {
+      "id": "side_1",
+      "name": "Golden Fried Sweet Plantains (Dodo)",
+      "category": "Sides & Snacks",
+      "price_zar": 45.0,
+      "portion": "Generous Bowl of Sliced Plantains",
+      "spice_level": "Sweet / Mild",
+      "protein_options": [],
+      "dietary": [
+        "Vegetarian",
+        "Vegan",
+        "Halal"
+      ],
+      "prep_time_mins": 10,
+      "image_filename": "side_1.jpg",
+      "image_path": "/images/side_1.jpg",
+      "flag_for_review": null,
+      "description": "Naturally ripe sweet yellow plantains fried until caramelized and golden brown."
+    },
+    {
+      "id": "side_2",
+      "name": "Traditional Crispy Nigerian Meat Pie",
+      "category": "Sides & Snacks",
+      "price_zar": 40.0,
+      "portion": "1 Golden Pastry Pocket",
+      "spice_level": "Mild",
+      "protein_options": [
+        "Minced Beef Filling"
+      ],
+      "dietary": [
+        "Halal"
+      ],
+      "prep_time_mins": 5,
+      "image_filename": "side_2.jpg",
+      "image_path": "/images/side_2.jpg",
+      "flag_for_review": null,
+      "description": "Buttery flaky pastry stuffed with seasoned minced lean beef, diced potatoes, carrots, and sweet onions."
+    },
+    {
+      "id": "side_3",
+      "name": "Puff Puff Sweet Golden Doughnut Balls",
+      "category": "Sides & Snacks",
+      "price_zar": 50.0,
+      "portion": "Bag of 8 Warm Doughnut Balls",
+      "spice_level": "Sweet with Nutmeg",
+      "protein_options": [],
+      "dietary": [
+        "Vegetarian",
+        "Vegan",
+        "Halal"
+      ],
+      "prep_time_mins": 8,
+      "image_filename": "side_3.jpg",
+      "image_path": "/images/side_3.jpg",
+      "flag_for_review": null,
+      "description": "Freshly fried spongy golden dough balls flavored with grated nutmeg and a touch of sweetness."
+    },
+    {
+      "id": "side_4",
+      "name": "Kilishi Traditional Sun-Dried Beef",
+      "category": "Sides & Snacks",
+      "price_zar": 95.0,
+      "portion": "100g Vacuum Pack of Spiced Beef Jerky",
+      "spice_level": "Hot Suya Yaji",
+      "protein_options": [
+        "Sun-Dried Beef"
+      ],
+      "dietary": [
+        "Halal",
+        "Traditional Snack"
+      ],
+      "prep_time_mins": 2,
+      "image_filename": "kilishi_beef.jpg",
+      "image_path": "/images/kilishi_beef.jpg",
+      "flag_for_review": null,
+      "description": "Authentic Hausa-style thinly sliced sun-dried beef seasoned with peanut paste, ginger, garlic, and hot peppers."
+    },
+    {
+      "id": "side_5",
+      "name": "Fresh Agege Bread Loaf with Butter",
+      "category": "Sides & Snacks",
+      "price_zar": 35.0,
+      "portion": "Whole Soft Loaf with Salted Butter",
+      "spice_level": "Mild",
+      "protein_options": [],
+      "dietary": [
+        "Vegetarian",
+        "Halal"
+      ],
+      "prep_time_mins": 2,
+      "image_filename": "agege_bread.jpg",
+      "image_path": "/images/agege_bread.jpg",
+      "flag_for_review": null,
+      "description": "Ultra-soft, dense, and sweet Lagos-style bakery Agege bread, perfect for dipping into native stews or soups."
+    },
+    {
+      "id": "drink_1",
+      "name": "Classic 306 Chapman Mocktail",
+      "category": "Drinks & Cocktails",
+      "price_zar": 55.0,
+      "portion": "Large Chilled Glass with Garnishes",
+      "spice_level": "Refreshing Fruity",
+      "protein_options": [],
+      "dietary": [
+        "Non-Alcoholic",
+        "Signature Drink"
+      ],
+      "prep_time_mins": 5,
+      "image_filename": "drink_1.jpg",
+      "image_path": "/images/drink_1.jpg",
+      "flag_for_review": null,
+      "description": "Nigeria most iconic cocktail: sparkling Fanta, Sprite, aromatic Angostura bitters, grenadine, cucumber slices, and lemon."
+    },
+    {
+      "id": "drink_2",
+      "name": "Zobo Hibiscus & Pineapple Cooler",
+      "category": "Drinks & Cocktails",
+      "price_zar": 45.0,
+      "portion": "500ml Bottle on Crushed Ice",
+      "spice_level": "Tart & Gingery",
+      "protein_options": [],
+      "dietary": [
+        "100% Natural",
+        "Vegan"
+      ],
+      "prep_time_mins": 2,
+      "image_filename": "drink_2.jpg",
+      "image_path": "/images/drink_2.jpg",
+      "flag_for_review": null,
+      "description": "Slow-brewed dried hibiscus calyces infused with fresh ginger, cloves, and sweet cold-pressed pineapple juice."
+    },
+    {
+      "id": "drink_3",
+      "name": "Ice Cold Malta Guinness",
+      "category": "Drinks & Cocktails",
+      "price_zar": 35.0,
+      "portion": "330ml Chilled Bottle",
+      "spice_level": "Sweet Malty",
+      "protein_options": [],
+      "dietary": [
+        "Non-Alcoholic",
+        "Halal Certified"
+      ],
+      "prep_time_mins": 2,
+      "image_filename": "drink_3.jpg",
+      "image_path": "/images/drink_3.jpg",
+      "flag_for_review": null,
+      "description": "Africa premium malt drink packed with B-vitamins, rich barley, and natural cane sweetness, served ice cold."
+    },
+    {
+      "id": "drink_4",
+      "name": "Fresh Sweet Natural Palm Wine",
+      "category": "Drinks & Cocktails",
+      "price_zar": 65.0,
+      "portion": "Traditional Calabash or 500ml Carafe",
+      "spice_level": "Naturally Fermented / Sweet",
+      "protein_options": [],
+      "dietary": [
+        "Traditional Beverage",
+        "Light Alcohol (2-4%)"
+      ],
+      "prep_time_mins": 3,
+      "image_filename": "drink_4.jpg",
+      "image_path": "/images/drink_4.jpg",
+      "flag_for_review": "Contains mild natural alcohol from wild yeast fermentation",
+      "description": "Authentic freshly tapped sweet sap from African oil palms, gently effervescent and served chilled."
+    }
+  ]
+}
